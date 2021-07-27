@@ -1,0 +1,37 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/documents/document_id={document_id}> a <http://valuenet/ontop/documents> ; <http://valuenet/ontop/documents#document_id> {document_id}^^xsd:integer ; <http://valuenet/ontop/documents#template_id> {template_id}^^xsd:integer ; <http://valuenet/ontop/documents#document_name> {document_name}^^xsd:string ; <http://valuenet/ontop/documents#document_description> {document_description}^^xsd:string ; <http://valuenet/ontop/documents#other_details> {other_details}^^xsd:string . 
+source		SELECT * FROM "documents"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/documents/document_id={documents_document_id}> <http://valuenet/ontop/documents#ref-template_id> <http://valuenet/ontop/templates/template_id={templates_template_id}> . 
+source		SELECT "documents"."document_id" AS documents_document_id, "templates"."template_id" AS templates_template_id FROM "documents", "templates" WHERE "documents"."template_id" = "templates"."template_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/ref_template_types/template_type_code={template_type_code}> a <http://valuenet/ontop/ref_template_types> ; <http://valuenet/ontop/ref_template_types#template_type_code> {template_type_code}^^xsd:string ; <http://valuenet/ontop/ref_template_types#template_type_description> {template_type_description}^^xsd:string . 
+source		SELECT * FROM "ref_template_types"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		<http://valuenet/ontop/templates/template_id={template_id}> a <http://valuenet/ontop/templates> ; <http://valuenet/ontop/templates#template_id> {template_id}^^xsd:integer ; <http://valuenet/ontop/templates#version_number> {version_number}^^xsd:integer ; <http://valuenet/ontop/templates#template_type_code> {template_type_code}^^xsd:string ; <http://valuenet/ontop/templates#date_effective_from> {date_effective_from}^^xsd:dateTime ; <http://valuenet/ontop/templates#date_effective_to> {date_effective_to}^^xsd:dateTime ; <http://valuenet/ontop/templates#template_details> {template_details}^^xsd:string . 
+source		SELECT * FROM "templates"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		<http://valuenet/ontop/templates/template_id={templates_template_id}> <http://valuenet/ontop/templates#ref-template_type_code> <http://valuenet/ontop/ref_template_types/template_type_code={ref_template_types_template_type_code}> . 
+source		SELECT "templates"."template_id" AS templates_template_id, "ref_template_types"."template_type_code" AS ref_template_types_template_type_code FROM "templates", "ref_template_types" WHERE "templates"."template_type_code" = "ref_template_types"."template_type_code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID6
+target		<http://valuenet/ontop/paragraphs/paragraph_id={paragraph_id}> a <http://valuenet/ontop/paragraphs> ; <http://valuenet/ontop/paragraphs#paragraph_id> {paragraph_id}^^xsd:integer ; <http://valuenet/ontop/paragraphs#document_id> {document_id}^^xsd:integer ; <http://valuenet/ontop/paragraphs#paragraph_text> {paragraph_text}^^xsd:string ; <http://valuenet/ontop/paragraphs#other_details> {other_details}^^xsd:string . 
+source		SELECT * FROM "paragraphs"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID7
+target		<http://valuenet/ontop/paragraphs/paragraph_id={paragraphs_paragraph_id}> <http://valuenet/ontop/paragraphs#ref-document_id> <http://valuenet/ontop/documents/document_id={documents_document_id}> . 
+source		SELECT "paragraphs"."paragraph_id" AS paragraphs_paragraph_id, "documents"."document_id" AS documents_document_id FROM "paragraphs", "documents" WHERE "paragraphs"."document_id" = "documents"."document_id"
+]]
+

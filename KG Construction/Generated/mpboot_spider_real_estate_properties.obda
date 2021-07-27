@@ -1,0 +1,45 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/other_available_features/feature_id={feature_id}> a <http://valuenet/ontop/other_available_features> ; <http://valuenet/ontop/other_available_features#feature_id> {feature_id}^^xsd:integer ; <http://valuenet/ontop/other_available_features#feature_type_code> {feature_type_code}^^xsd:string ; <http://valuenet/ontop/other_available_features#feature_name> {feature_name}^^xsd:string ; <http://valuenet/ontop/other_available_features#feature_description> {feature_description}^^xsd:string . 
+source		SELECT * FROM "other_available_features"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/other_available_features/feature_id={other_available_features_feature_id}> <http://valuenet/ontop/other_available_features#ref-feature_type_code> <http://valuenet/ontop/ref_feature_types/feature_type_code={ref_feature_types_feature_type_code}> . 
+source		SELECT "other_available_features"."feature_id" AS other_available_features_feature_id, "ref_feature_types"."feature_type_code" AS ref_feature_types_feature_type_code FROM "other_available_features", "ref_feature_types" WHERE "other_available_features"."feature_type_code" = "ref_feature_types"."feature_type_code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		_:ontop-bnode-1/{property_id}/{feature_id}/{property_feature_description} a <http://valuenet/ontop/other_property_features> ; <http://valuenet/ontop/other_property_features#property_id> {property_id}^^xsd:integer ; <http://valuenet/ontop/other_property_features#feature_id> {feature_id}^^xsd:integer ; <http://valuenet/ontop/other_property_features#property_feature_description> {property_feature_description}^^xsd:string . 
+source		SELECT ("other_property_features"."property_id") AS property_id, ("other_property_features"."feature_id") AS feature_id, COALESCE("other_property_features"."property_feature_description", 'NULL') AS property_feature_description FROM "other_property_features"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		_:ontop-bnode-1/{other_property_features_property_id}/{other_property_features_feature_id}/{other_property_features_property_feature_description} <http://valuenet/ontop/other_property_features#ref-feature_id> <http://valuenet/ontop/other_available_features/feature_id={other_available_features_feature_id}> . 
+source		SELECT ("other_property_features"."property_id") AS other_property_features_property_id, ("other_property_features"."feature_id") AS other_property_features_feature_id, COALESCE("other_property_features"."property_feature_description", 'NULL') AS other_property_features_property_feature_description, "other_available_features"."feature_id" AS other_available_features_feature_id FROM "other_property_features", "other_available_features" WHERE "other_property_features"."feature_id" = "other_available_features"."feature_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		_:ontop-bnode-1/{other_property_features_property_id}/{other_property_features_feature_id}/{other_property_features_property_feature_description} <http://valuenet/ontop/other_property_features#ref-property_id> <http://valuenet/ontop/properties/property_id={properties_property_id}> . 
+source		SELECT ("other_property_features"."property_id") AS other_property_features_property_id, ("other_property_features"."feature_id") AS other_property_features_feature_id, COALESCE("other_property_features"."property_feature_description", 'NULL') AS other_property_features_property_feature_description, "properties"."property_id" AS properties_property_id FROM "other_property_features", "properties" WHERE "other_property_features"."property_id" = "properties"."property_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID6
+target		<http://valuenet/ontop/ref_property_types/property_type_code={property_type_code}> a <http://valuenet/ontop/ref_property_types> ; <http://valuenet/ontop/ref_property_types#property_type_code> {property_type_code}^^xsd:string ; <http://valuenet/ontop/ref_property_types#property_type_description> {property_type_description}^^xsd:string . 
+source		SELECT * FROM "ref_property_types"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID7
+target		<http://valuenet/ontop/ref_feature_types/feature_type_code={feature_type_code}> a <http://valuenet/ontop/ref_feature_types> ; <http://valuenet/ontop/ref_feature_types#feature_type_code> {feature_type_code}^^xsd:string ; <http://valuenet/ontop/ref_feature_types#feature_type_name> {feature_type_name}^^xsd:string . 
+source		SELECT * FROM "ref_feature_types"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID8
+target		<http://valuenet/ontop/properties/property_id={property_id}> a <http://valuenet/ontop/properties> ; <http://valuenet/ontop/properties#property_id> {property_id}^^xsd:integer ; <http://valuenet/ontop/properties#property_type_code> {property_type_code}^^xsd:string ; <http://valuenet/ontop/properties#date_on_market> {date_on_market}^^xsd:dateTime ; <http://valuenet/ontop/properties#date_sold> {date_sold}^^xsd:dateTime ; <http://valuenet/ontop/properties#property_name> {property_name}^^xsd:string ; <http://valuenet/ontop/properties#property_address> {property_address}^^xsd:string ; <http://valuenet/ontop/properties#room_count> {room_count}^^xsd:integer ; <http://valuenet/ontop/properties#vendor_requested_price> {vendor_requested_price}^^xsd:decimal ; <http://valuenet/ontop/properties#buyer_offered_price> {buyer_offered_price}^^xsd:decimal ; <http://valuenet/ontop/properties#agreed_selling_price> {agreed_selling_price}^^xsd:decimal ; <http://valuenet/ontop/properties#apt_feature_1> {apt_feature_1}^^xsd:string ; <http://valuenet/ontop/properties#apt_feature_2> {apt_feature_2}^^xsd:string ; <http://valuenet/ontop/properties#apt_feature_3> {apt_feature_3}^^xsd:string ; <http://valuenet/ontop/properties#fld_feature_1> {fld_feature_1}^^xsd:string ; <http://valuenet/ontop/properties#fld_feature_2> {fld_feature_2}^^xsd:string ; <http://valuenet/ontop/properties#fld_feature_3> {fld_feature_3}^^xsd:string ; <http://valuenet/ontop/properties#hse_feature_1> {hse_feature_1}^^xsd:string ; <http://valuenet/ontop/properties#hse_feature_2> {hse_feature_2}^^xsd:string ; <http://valuenet/ontop/properties#hse_feature_3> {hse_feature_3}^^xsd:string ; <http://valuenet/ontop/properties#oth_feature_1> {oth_feature_1}^^xsd:string ; <http://valuenet/ontop/properties#oth_feature_2> {oth_feature_2}^^xsd:string ; <http://valuenet/ontop/properties#oth_feature_3> {oth_feature_3}^^xsd:string ; <http://valuenet/ontop/properties#shp_feature_1> {shp_feature_1}^^xsd:string ; <http://valuenet/ontop/properties#shp_feature_2> {shp_feature_2}^^xsd:string ; <http://valuenet/ontop/properties#shp_feature_3> {shp_feature_3}^^xsd:string ; <http://valuenet/ontop/properties#other_property_details> {other_property_details}^^xsd:string . 
+source		SELECT * FROM "properties"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID9
+target		<http://valuenet/ontop/properties/property_id={properties_property_id}> <http://valuenet/ontop/properties#ref-property_type_code> <http://valuenet/ontop/ref_property_types/property_type_code={ref_property_types_property_type_code}> . 
+source		SELECT "properties"."property_id" AS properties_property_id, "ref_property_types"."property_type_code" AS ref_property_types_property_type_code FROM "properties", "ref_property_types" WHERE "properties"."property_type_code" = "ref_property_types"."property_type_code"
+]]
+

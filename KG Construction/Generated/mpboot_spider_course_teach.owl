@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange#ref-course_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/course_arrange#ref-course_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course_arrange"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange#ref-teacher_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/course_arrange#ref-teacher_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course_arrange"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/teacher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/course#course -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course#course">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course#course_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course#course_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course#staring_date -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course#staring_date">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange#course_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course_arrange#course_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course_arrange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange#grade -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course_arrange#grade">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course_arrange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange#teacher_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/course_arrange#teacher_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/course_arrange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/teacher#age -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/teacher#age">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/teacher"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/teacher#hometown -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/teacher#hometown">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/teacher"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/teacher#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/teacher#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/teacher"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/teacher#teacher_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/teacher#teacher_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/teacher"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/course -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/course"/>
+    
+
+
+    <!-- http://valuenet/ontop/course_arrange -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/course_arrange"/>
+    
+
+
+    <!-- http://valuenet/ontop/teacher -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/teacher"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+
