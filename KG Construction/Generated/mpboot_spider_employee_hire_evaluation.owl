@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/evaluation#ref-employee_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/evaluation#ref-employee_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/evaluation"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/employee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#ref-employee_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/hiring#ref-employee_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/employee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#ref-shop_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/hiring#ref-shop_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/shop"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/employee#age -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/employee#age">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/employee#city -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/employee#city">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/employee#employee_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/employee#employee_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/employee#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/employee#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/evaluation#bonus -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/evaluation#bonus">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/evaluation#employee_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/evaluation#employee_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/evaluation#year_awarded -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/evaluation#year_awarded">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#employee_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/hiring#employee_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#is_full_time -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/hiring#is_full_time">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#shop_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/hiring#shop_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/hiring#start_from -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/hiring#start_from">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/hiring"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#district -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#district">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#location -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#location">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#manager_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#manager_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#number_products -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#number_products">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/shop#shop_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/shop#shop_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/shop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/employee -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/employee"/>
+    
+
+
+    <!-- http://valuenet/ontop/evaluation -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/evaluation"/>
+    
+
+
+    <!-- http://valuenet/ontop/hiring -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/hiring"/>
+    
+
+
+    <!-- http://valuenet/ontop/shop -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/shop"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+

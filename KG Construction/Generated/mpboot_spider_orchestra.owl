@@ -1,0 +1,207 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:genid1 a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#ref-conductor_id
+
+<http://semanticweb.org/spider_orchestra/orchestra#ref-conductor_id> a owl:ObjectProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range <http://semanticweb.org/spider_orchestra/conductor> .
+# 
+# http://semanticweb.org/spider_orchestra/performance#ref-orchestra_id
+
+<http://semanticweb.org/spider_orchestra/performance#ref-orchestra_id> a owl:ObjectProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range <http://semanticweb.org/spider_orchestra/orchestra> .
+# 
+# http://semanticweb.org/spider_orchestra/show#ref-performance_id
+
+<http://semanticweb.org/spider_orchestra/show#ref-performance_id> a owl:ObjectProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range <http://semanticweb.org/spider_orchestra/performance> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://semanticweb.org/spider_orchestra/conductor#age
+
+<http://semanticweb.org/spider_orchestra/conductor#age> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/conductor> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/conductor#conductor_id
+
+<http://semanticweb.org/spider_orchestra/conductor#conductor_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/conductor> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/conductor#name
+
+<http://semanticweb.org/spider_orchestra/conductor#name> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/conductor> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/conductor#nationality
+
+<http://semanticweb.org/spider_orchestra/conductor#nationality> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/conductor> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/conductor#year_of_work
+
+<http://semanticweb.org/spider_orchestra/conductor#year_of_work> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/conductor> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#conductor_id
+
+<http://semanticweb.org/spider_orchestra/orchestra#conductor_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#major_record_format
+
+<http://semanticweb.org/spider_orchestra/orchestra#major_record_format> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#orchestra
+
+<http://semanticweb.org/spider_orchestra/orchestra#orchestra> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#orchestra_id
+
+<http://semanticweb.org/spider_orchestra/orchestra#orchestra_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#record_company
+
+<http://semanticweb.org/spider_orchestra/orchestra#record_company> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra#year_of_founded
+
+<http://semanticweb.org/spider_orchestra/orchestra#year_of_founded> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/orchestra> ;
+	rdfs:range xsd:double .
+# 
+# http://semanticweb.org/spider_orchestra/performance#date
+
+<http://semanticweb.org/spider_orchestra/performance#date> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/performance#official_ratings_millions
+
+<http://semanticweb.org/spider_orchestra/performance#official_ratings_millions> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:double .
+# 
+# http://semanticweb.org/spider_orchestra/performance#orchestra_id
+
+<http://semanticweb.org/spider_orchestra/performance#orchestra_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/performance#performance_id
+
+<http://semanticweb.org/spider_orchestra/performance#performance_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/performance#share
+
+<http://semanticweb.org/spider_orchestra/performance#share> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/performance#type
+
+<http://semanticweb.org/spider_orchestra/performance#type> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/performance#weekly_rank
+
+<http://semanticweb.org/spider_orchestra/performance#weekly_rank> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/performance> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/show#attendance
+
+<http://semanticweb.org/spider_orchestra/show#attendance> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range xsd:double .
+# 
+# http://semanticweb.org/spider_orchestra/show#if_first_show
+
+<http://semanticweb.org/spider_orchestra/show#if_first_show> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range xsd:boolean .
+# 
+# http://semanticweb.org/spider_orchestra/show#performance_id
+
+<http://semanticweb.org/spider_orchestra/show#performance_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range xsd:integer .
+# 
+# http://semanticweb.org/spider_orchestra/show#result
+
+<http://semanticweb.org/spider_orchestra/show#result> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range xsd:string .
+# 
+# http://semanticweb.org/spider_orchestra/show#show_id
+
+<http://semanticweb.org/spider_orchestra/show#show_id> a owl:DatatypeProperty ;
+	rdfs:domain <http://semanticweb.org/spider_orchestra/show> ;
+	rdfs:range xsd:integer .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://semanticweb.org/spider_orchestra/conductor
+
+<http://semanticweb.org/spider_orchestra/conductor> a owl:Class .
+# 
+# http://semanticweb.org/spider_orchestra/orchestra
+
+<http://semanticweb.org/spider_orchestra/orchestra> a owl:Class .
+# 
+# http://semanticweb.org/spider_orchestra/performance
+
+<http://semanticweb.org/spider_orchestra/performance> a owl:Class .
+# 
+# http://semanticweb.org/spider_orchestra/show
+
+<http://semanticweb.org/spider_orchestra/show> a owl:Class .
+# 
+# Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi

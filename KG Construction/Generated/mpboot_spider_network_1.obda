@@ -1,0 +1,37 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/friend/student_id={student_id};friend_id={friend_id}> a <http://valuenet/ontop/friend> ; <http://valuenet/ontop/friend#student_id> {student_id}^^xsd:integer ; <http://valuenet/ontop/friend#friend_id> {friend_id}^^xsd:integer . 
+source		SELECT * FROM "friend"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/friend/student_id={friend_student_id};friend_id={friend_friend_id}> <http://valuenet/ontop/friend#ref-friend_id> <http://valuenet/ontop/highschooler/id={highschooler_id}> . 
+source		SELECT "friend"."student_id" AS friend_student_id, "friend"."friend_id" AS friend_friend_id, "highschooler"."id" AS highschooler_id FROM "friend", "highschooler" WHERE "friend"."friend_id" = "highschooler"."id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/friend/student_id={friend_student_id};friend_id={friend_friend_id}> <http://valuenet/ontop/friend#ref-student_id> <http://valuenet/ontop/highschooler/id={highschooler_id}> . 
+source		SELECT "friend"."student_id" AS friend_student_id, "friend"."friend_id" AS friend_friend_id, "highschooler"."id" AS highschooler_id FROM "friend", "highschooler" WHERE "friend"."student_id" = "highschooler"."id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		<http://valuenet/ontop/highschooler/id={id}> a <http://valuenet/ontop/highschooler> ; <http://valuenet/ontop/highschooler#id> {id}^^xsd:integer ; <http://valuenet/ontop/highschooler#name> {name}^^xsd:string ; <http://valuenet/ontop/highschooler#grade> {grade}^^xsd:integer . 
+source		SELECT * FROM "highschooler"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		<http://valuenet/ontop/likes/student_id={student_id};liked_id={liked_id}> a <http://valuenet/ontop/likes> ; <http://valuenet/ontop/likes#student_id> {student_id}^^xsd:integer ; <http://valuenet/ontop/likes#liked_id> {liked_id}^^xsd:integer . 
+source		SELECT * FROM "likes"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID6
+target		<http://valuenet/ontop/likes/student_id={likes_student_id};liked_id={likes_liked_id}> <http://valuenet/ontop/likes#ref-liked_id> <http://valuenet/ontop/highschooler/id={highschooler_id}> . 
+source		SELECT "likes"."student_id" AS likes_student_id, "likes"."liked_id" AS likes_liked_id, "highschooler"."id" AS highschooler_id FROM "likes", "highschooler" WHERE "likes"."liked_id" = "highschooler"."id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID7
+target		<http://valuenet/ontop/likes/student_id={likes_student_id};liked_id={likes_liked_id}> <http://valuenet/ontop/likes#ref-student_id> <http://valuenet/ontop/highschooler/id={highschooler_id}> . 
+source		SELECT "likes"."student_id" AS likes_student_id, "likes"."liked_id" AS likes_liked_id, "highschooler"."id" AS highschooler_id FROM "likes", "highschooler" WHERE "likes"."student_id" = "highschooler"."id"
+]]
+

@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features#ref-feature_type_code -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/other_available_features#ref-feature_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_available_features"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/ref_feature_types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features#ref-feature_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/other_property_features#ref-feature_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_property_features"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/other_available_features"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features#ref-property_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/other_property_features#ref-property_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_property_features"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#ref-property_type_code -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/properties#ref-property_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/ref_property_types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features#feature_description -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_available_features#feature_description">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_available_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features#feature_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_available_features#feature_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_available_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features#feature_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_available_features#feature_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_available_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features#feature_type_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_available_features#feature_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_available_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features#feature_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_property_features#feature_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_property_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features#property_feature_description -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_property_features#property_feature_description">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_property_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features#property_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/other_property_features#property_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/other_property_features"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#agreed_selling_price -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#agreed_selling_price">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#apt_feature_1 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#apt_feature_1">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#apt_feature_2 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#apt_feature_2">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#apt_feature_3 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#apt_feature_3">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#buyer_offered_price -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#buyer_offered_price">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#date_on_market -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#date_on_market">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#date_sold -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#date_sold">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#fld_feature_1 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#fld_feature_1">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#fld_feature_2 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#fld_feature_2">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#fld_feature_3 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#fld_feature_3">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#hse_feature_1 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#hse_feature_1">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#hse_feature_2 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#hse_feature_2">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#hse_feature_3 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#hse_feature_3">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#oth_feature_1 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#oth_feature_1">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#oth_feature_2 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#oth_feature_2">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#oth_feature_3 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#oth_feature_3">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#other_property_details -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#other_property_details">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#property_address -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#property_address">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#property_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#property_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#property_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#property_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#property_type_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#property_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#room_count -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#room_count">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#shp_feature_1 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#shp_feature_1">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#shp_feature_2 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#shp_feature_2">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#shp_feature_3 -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#shp_feature_3">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/properties#vendor_requested_price -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/properties#vendor_requested_price">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/properties"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/ref_feature_types#feature_type_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/ref_feature_types#feature_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/ref_feature_types"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/ref_feature_types#feature_type_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/ref_feature_types#feature_type_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/ref_feature_types"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/ref_property_types#property_type_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/ref_property_types#property_type_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/ref_property_types"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/ref_property_types#property_type_description -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/ref_property_types#property_type_description">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/ref_property_types"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/other_available_features -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/other_available_features"/>
+    
+
+
+    <!-- http://valuenet/ontop/other_property_features -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/other_property_features"/>
+    
+
+
+    <!-- http://valuenet/ontop/properties -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/properties"/>
+    
+
+
+    <!-- http://valuenet/ontop/ref_feature_types -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/ref_feature_types"/>
+    
+
+
+    <!-- http://valuenet/ontop/ref_property_types -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/ref_property_types"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+
