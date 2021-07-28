@@ -1,0 +1,166 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:BOOTSTRAPPED-MAPPING-ID1_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"pets\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "pet_age";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/pets#pet_age>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "weight";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/pets#weight>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "petid";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/pets#petid>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "pettype";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/pets#pettype>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/pets>;
+      rr:template "http://valuenet/ontop/pets/petid={petid}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID2_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT COALESCE(\"has_pet\".\"stuid\", 0) AS stuid, COALESCE(\"has_pet\".\"petid\", 0) AS petid FROM \"has_pet\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "stuid";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/has_pet#stuid>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "petid";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/has_pet#petid>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/has_pet>;
+      rr:template "_:_:ontop-bnode-1/{stuid}/{petid}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID3> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT COALESCE(\"has_pet\".\"stuid\", 0) AS has_pet_stuid, COALESCE(\"has_pet\".\"petid\", 0) AS has_pet_petid, \"pets\".\"petid\" AS pets_petid FROM \"has_pet\", \"pets\" WHERE \"has_pet\".\"petid\" = \"pets\".\"petid\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/pets/petid={pets_petid}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/has_pet#ref-petid>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "_:_:ontop-bnode-2/{has_pet_stuid}/{has_pet_petid}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID4> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT COALESCE(\"has_pet\".\"stuid\", 0) AS has_pet_stuid, COALESCE(\"has_pet\".\"petid\", 0) AS has_pet_petid, \"student\".\"stuid\" AS student_stuid FROM \"has_pet\", \"student\" WHERE \"has_pet\".\"stuid\" = \"student\".\"stuid\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/student/stuid={student_stuid}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/has_pet#ref-stuid>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "_:_:ontop-bnode-3/{has_pet_stuid}/{has_pet_petid}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID5_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"student\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "stuid";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#stuid>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "lname";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#lname>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "fname";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#fname>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "age";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#age>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "sex";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#sex>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "major";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#major>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "advisor";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#advisor>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "city_code";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student#city_code>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/student>;
+      rr:template "http://valuenet/ontop/student/stuid={stuid}";
+      rr:termType rr:IRI
+    ] .
