@@ -1,0 +1,111 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:BOOTSTRAPPED-MAPPING-ID1_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"song\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "singer_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/song#singer_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "sales";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/song#sales>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "highest_position";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/song#highest_position>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "song_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/song#song_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "title";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/song#title>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/song>;
+      rr:template "http://valuenet/ontop/song/song_id={song_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID2> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"song\".\"song_id\" AS song_song_id, \"singer\".\"singer_id\" AS singer_singer_id FROM \"song\", \"singer\" WHERE \"song\".\"singer_id\" = \"singer\".\"singer_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/singer/singer_id={singer_singer_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/song#ref-singer_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/song/song_id={song_song_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID3_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"singer\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "singer_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/singer#singer_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/singer#name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "birth_year";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/singer#birth_year>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "net_worth_millions";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/singer#net_worth_millions>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "citizenship";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/singer#citizenship>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/singer>;
+      rr:template "http://valuenet/ontop/singer/singer_id={singer_id}";
+      rr:termType rr:IRI
+    ] .

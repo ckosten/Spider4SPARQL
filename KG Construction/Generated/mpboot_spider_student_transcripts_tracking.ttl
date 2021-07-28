@@ -1,0 +1,692 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:BOOTSTRAPPED-MAPPING-ID1_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"student_enrolment_courses\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_enrolment_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment_courses#student_enrolment_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_course_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment_courses#student_course_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "course_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment_courses#course_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/student_enrolment_courses>;
+      rr:template "http://valuenet/ontop/student_enrolment_courses/student_course_id={student_course_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID2> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"student_enrolment_courses\".\"student_course_id\" AS student_enrolment_courses_student_course_id, \"courses\".\"course_id\" AS courses_course_id FROM \"student_enrolment_courses\", \"courses\" WHERE \"student_enrolment_courses\".\"course_id\" = \"courses\".\"course_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/courses/course_id={courses_course_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment_courses#ref-course_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/student_enrolment_courses/student_course_id={student_enrolment_courses_student_course_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID3> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"student_enrolment_courses\".\"student_course_id\" AS student_enrolment_courses_student_course_id, \"student_enrolment\".\"student_enrolment_id\" AS student_enrolment_student_enrolment_id FROM \"student_enrolment_courses\", \"student_enrolment\" WHERE \"student_enrolment_courses\".\"student_enrolment_id\" = \"student_enrolment\".\"student_enrolment_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/student_enrolment/student_enrolment_id={student_enrolment_student_enrolment_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment_courses#ref-student_enrolment_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/student_enrolment_courses/student_course_id={student_enrolment_courses_student_course_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID4_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"courses\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "course_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/courses#course_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "course_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/courses#course_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "course_description";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/courses#course_description>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/courses#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/courses>;
+      rr:template "http://valuenet/ontop/courses/course_id={course_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID5_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"addresses\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "address_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#address_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "line_1";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#line_1>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "line_2";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#line_2>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "line_3";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#line_3>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "city";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#city>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "zip_postcode";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#zip_postcode>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "state_province_county";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#state_province_county>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "country";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#country>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_address_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/addresses#other_address_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/addresses>;
+      rr:template "http://valuenet/ontop/addresses/address_id={address_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID6_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"transcripts\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "transcript_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/transcripts#transcript_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "transcript_date";
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/transcripts#transcript_date>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/transcripts#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/transcripts>;
+      rr:template "http://valuenet/ontop/transcripts/transcript_id={transcript_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID7_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"students\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "email_address";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#email_address>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "ssn";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#ssn>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "date_first_registered";
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#date_first_registered>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "date_left";
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#date_left>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_student_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#other_student_details>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#student_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "current_address_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#current_address_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "permanent_address_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#permanent_address_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "first_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#first_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "middle_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#middle_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "last_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#last_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "cell_mobile_number";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/students#cell_mobile_number>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/students>;
+      rr:template "http://valuenet/ontop/students/student_id={student_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID8> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"students\".\"student_id\" AS students_student_id, \"addresses\".\"address_id\" AS addresses_address_id FROM \"students\", \"addresses\" WHERE \"students\".\"current_address_id\" = \"addresses\".\"address_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/addresses/address_id={addresses_address_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/students#ref-current_address_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/students/student_id={students_student_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID9> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"students\".\"student_id\" AS students_student_id, \"addresses\".\"address_id\" AS addresses_address_id FROM \"students\", \"addresses\" WHERE \"students\".\"permanent_address_id\" = \"addresses\".\"address_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/addresses/address_id={addresses_address_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/students#ref-permanent_address_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/students/student_id={students_student_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID10_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT (\"transcript_contents\".\"student_course_id\") AS student_course_id, (\"transcript_contents\".\"transcript_id\") AS transcript_id FROM \"transcript_contents\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_course_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/transcript_contents#student_course_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "transcript_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/transcript_contents#transcript_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/transcript_contents>;
+      rr:template "_:_:ontop-bnode-1/{student_course_id}/{transcript_id}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID11> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT (\"transcript_contents\".\"student_course_id\") AS transcript_contents_student_course_id, (\"transcript_contents\".\"transcript_id\") AS transcript_contents_transcript_id, \"student_enrolment_courses\".\"student_course_id\" AS student_enrolment_courses_student_course_id FROM \"transcript_contents\", \"student_enrolment_courses\" WHERE \"transcript_contents\".\"student_course_id\" = \"student_enrolment_courses\".\"student_course_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/student_enrolment_courses/student_course_id={student_enrolment_courses_student_course_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/transcript_contents#ref-student_course_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "_:_:ontop-bnode-2/{transcript_contents_student_course_id}/{transcript_contents_transcript_id}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID12> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT (\"transcript_contents\".\"student_course_id\") AS transcript_contents_student_course_id, (\"transcript_contents\".\"transcript_id\") AS transcript_contents_transcript_id, \"transcripts\".\"transcript_id\" AS transcripts_transcript_id FROM \"transcript_contents\", \"transcripts\" WHERE \"transcript_contents\".\"transcript_id\" = \"transcripts\".\"transcript_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/transcripts/transcript_id={transcripts_transcript_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/transcript_contents#ref-transcript_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "_:_:ontop-bnode-3/{transcript_contents_student_course_id}/{transcript_contents_transcript_id}";
+      rr:termType rr:BlankNode
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID13_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"sections\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "section_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/sections#section_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "course_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/sections#course_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "section_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/sections#section_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "section_description";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/sections#section_description>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/sections#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/sections>;
+      rr:template "http://valuenet/ontop/sections/section_id={section_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID14> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"sections\".\"section_id\" AS sections_section_id, \"courses\".\"course_id\" AS courses_course_id FROM \"sections\", \"courses\" WHERE \"sections\".\"course_id\" = \"courses\".\"course_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/courses/course_id={courses_course_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/sections#ref-course_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/sections/section_id={sections_section_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID15_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"student_enrolment\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_enrolment_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#student_enrolment_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "degree_program_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#degree_program_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "semester_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#semester_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "student_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#student_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/student_enrolment>;
+      rr:template "http://valuenet/ontop/student_enrolment/student_enrolment_id={student_enrolment_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID16> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"student_enrolment\".\"student_enrolment_id\" AS student_enrolment_student_enrolment_id, \"degree_programs\".\"degree_program_id\" AS degree_programs_degree_program_id FROM \"student_enrolment\", \"degree_programs\" WHERE \"student_enrolment\".\"degree_program_id\" = \"degree_programs\".\"degree_program_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/degree_programs/degree_program_id={degree_programs_degree_program_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#ref-degree_program_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/student_enrolment/student_enrolment_id={student_enrolment_student_enrolment_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID17> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"student_enrolment\".\"student_enrolment_id\" AS student_enrolment_student_enrolment_id, \"semesters\".\"semester_id\" AS semesters_semester_id FROM \"student_enrolment\", \"semesters\" WHERE \"student_enrolment\".\"semester_id\" = \"semesters\".\"semester_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/semesters/semester_id={semesters_semester_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#ref-semester_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/student_enrolment/student_enrolment_id={student_enrolment_student_enrolment_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID18> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"student_enrolment\".\"student_enrolment_id\" AS student_enrolment_student_enrolment_id, \"students\".\"student_id\" AS students_student_id FROM \"student_enrolment\", \"students\" WHERE \"student_enrolment\".\"student_id\" = \"students\".\"student_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/students/student_id={students_student_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/student_enrolment#ref-student_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/student_enrolment/student_enrolment_id={student_enrolment_student_enrolment_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID19_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"degree_programs\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "degree_program_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#degree_program_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "department_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#department_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "degree_summary_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#degree_summary_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "degree_summary_description";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#degree_summary_description>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/degree_programs>;
+      rr:template "http://valuenet/ontop/degree_programs/degree_program_id={degree_program_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID20> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"degree_programs\".\"degree_program_id\" AS degree_programs_degree_program_id, \"departments\".\"department_id\" AS departments_department_id FROM \"degree_programs\", \"departments\" WHERE \"degree_programs\".\"department_id\" = \"departments\".\"department_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/departments/department_id={departments_department_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/degree_programs#ref-department_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/degree_programs/degree_program_id={degree_programs_degree_program_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID21_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"departments\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "department_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/departments#department_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "department_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/departments#department_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "department_description";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/departments#department_description>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/departments#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/departments>;
+      rr:template "http://valuenet/ontop/departments/department_id={department_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID22_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"semesters\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "semester_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/semesters#semester_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "semester_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/semesters#semester_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "semester_description";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/semesters#semester_description>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "other_details";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/semesters#other_details>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/semesters>;
+      rr:template "http://valuenet/ontop/semesters/semester_id={semester_id}";
+      rr:termType rr:IRI
+    ] .

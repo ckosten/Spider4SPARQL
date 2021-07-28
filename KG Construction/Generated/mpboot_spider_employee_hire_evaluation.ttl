@@ -1,0 +1,214 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:BOOTSTRAPPED-MAPPING-ID1_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"evaluation\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "bonus";
+          rr:datatype xsd:double;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/evaluation#bonus>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "employee_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/evaluation#employee_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "year_awarded";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/evaluation#year_awarded>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/evaluation>;
+      rr:template "http://valuenet/ontop/evaluation/employee_id={employee_id};year_awarded={year_awarded}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID2> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"evaluation\".\"employee_id\" AS evaluation_employee_id, \"evaluation\".\"year_awarded\" AS evaluation_year_awarded, \"employee\".\"employee_id\" AS employee_employee_id FROM \"evaluation\", \"employee\" WHERE \"evaluation\".\"employee_id\" = \"employee\".\"employee_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/employee/employee_id={employee_employee_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/evaluation#ref-employee_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/evaluation/employee_id={evaluation_employee_id};year_awarded={evaluation_year_awarded}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID3_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"shop\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "shop_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#shop_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "location";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#location>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "district";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#district>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "number_products";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#number_products>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "manager_name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/shop#manager_name>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/shop>;
+      rr:template "http://valuenet/ontop/shop/shop_id={shop_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID4_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"hiring\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "shop_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#shop_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "employee_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#employee_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "start_from";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#start_from>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "is_full_time";
+          rr:datatype xsd:boolean;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#is_full_time>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/hiring>;
+      rr:template "http://valuenet/ontop/hiring/employee_id={employee_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID5> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"hiring\".\"employee_id\" AS hiring_employee_id, \"employee\".\"employee_id\" AS employee_employee_id FROM \"hiring\", \"employee\" WHERE \"hiring\".\"employee_id\" = \"employee\".\"employee_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/employee/employee_id={employee_employee_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#ref-employee_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/hiring/employee_id={hiring_employee_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID6> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"hiring\".\"employee_id\" AS hiring_employee_id, \"shop\".\"shop_id\" AS shop_shop_id FROM \"hiring\", \"shop\" WHERE \"hiring\".\"shop_id\" = \"shop\".\"shop_id\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/shop/shop_id={shop_shop_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/hiring#ref-shop_id>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/hiring/employee_id={hiring_employee_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID7_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"employee\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "employee_id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/employee#employee_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/employee#name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "age";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/employee#age>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "city";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/employee#city>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/employee>;
+      rr:template "http://valuenet/ontop/employee/employee_id={employee_id}";
+      rr:termType rr:IRI
+    ] .

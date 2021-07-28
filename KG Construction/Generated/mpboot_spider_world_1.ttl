@@ -1,0 +1,236 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:BOOTSTRAPPED-MAPPING-ID1_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"country\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "continent";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#continent>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "region";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#region>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "surfacearea";
+          rr:datatype xsd:decimal;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#surfacearea>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "indepyear";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#indepyear>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "population";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#population>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "lifeexpectancy";
+          rr:datatype xsd:decimal;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#lifeexpectancy>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "gnp";
+          rr:datatype xsd:decimal;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#gnp>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "gnpold";
+          rr:datatype xsd:decimal;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#gnpold>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "localname";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#localname>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "governmentform";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#governmentform>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "headofstate";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#headofstate>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "capital";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#capital>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "code2";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#code2>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "code";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#code>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/country#name>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/country>;
+      rr:template "http://valuenet/ontop/country/code={code}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID2_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"city\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/city#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "name";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/city#name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "countrycode";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/city#countrycode>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "district";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/city#district>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "population";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/city#population>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/city>;
+      rr:template "http://valuenet/ontop/city/id={id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID3> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"city\".\"id\" AS city_id, \"country\".\"code\" AS country_code FROM \"city\", \"country\" WHERE \"city\".\"countrycode\" = \"country\".\"code\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/country/code={country_code}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/city#ref-countrycode>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/city/id={city_id}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID4_1> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM \"countrylanguage\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "countrycode";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/countrylanguage#countrycode>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "language";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/countrylanguage#language>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "isofficial";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/countrylanguage#isofficial>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "percentage";
+          rr:datatype xsd:decimal;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://valuenet/ontop/countrylanguage#percentage>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://valuenet/ontop/countrylanguage>;
+      rr:template "http://valuenet/ontop/countrylanguage/countrycode={countrycode};language={language}";
+      rr:termType rr:IRI
+    ] .
+
+<urn:BOOTSTRAPPED-MAPPING-ID5> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT \"countrylanguage\".\"countrycode\" AS countrylanguage_countrycode, \"countrylanguage\".\"language\" AS countrylanguage_language, \"country\".\"code\" AS country_code FROM \"countrylanguage\", \"country\" WHERE \"countrylanguage\".\"countrycode\" = \"country\".\"code\""
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://valuenet/ontop/country/code={country_code}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://valuenet/ontop/countrylanguage#ref-countrycode>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://valuenet/ontop/countrylanguage/countrycode={countrylanguage_countrycode};language={countrylanguage_language}";
+      rr:termType rr:IRI
+    ] .
