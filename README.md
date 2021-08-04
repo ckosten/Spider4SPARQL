@@ -13,4 +13,6 @@ There are a number of queries that return false negative results sets. Most ofte
 
 
 ## SETUP
-You can either install the script with pip (pip install -r requirements.txt) or with pipenv (pipenv install). After installing you can run the tasks either from the command line or in PyCharm. To run then in PyCharm, simply import the run configurations from the .run folder.
+You can either install the script with pip `pip install -r requirements.txt` or with pipenv `pipenv install` . After installing you can run the tasks either from the command line or in PyCharm. To run then in PyCharm, simply import the run configurations from the .run folder. In addition, you will need to download the spacy en_core_web_sm model with `python -m spacy download en_core_web_sm` 
+
+This setup will run the evaluation for the enriched Knowledge Graphs. To run the evaluation for the baseline knowledge graphs you will need to replace the filename with `KG_baseline_ont.json` in both the `playground_evaluation_sparql.py` and `spider_utils_sparql.py`
