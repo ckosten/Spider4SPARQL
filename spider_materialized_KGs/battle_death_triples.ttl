@@ -1,0 +1,210 @@
+<http://valuenet/ontop/ship/id=1> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=2> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=3> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=4> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=5> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=6> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/ship/id=7> a <http://valuenet/ontop/ship> .
+<http://valuenet/ontop/battle/id=1> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=2> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=3> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=4> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=5> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=6> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=7> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/battle/id=8> a <http://valuenet/ontop/battle> .
+<http://valuenet/ontop/death/id=1> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=2> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=13> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=3> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=4> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=5> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=6> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=7> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=8> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=9> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=10> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=11> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=12> a <http://valuenet/ontop/death> .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=1> .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=2> .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=3> .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=3> .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=4> .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=4> .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=5> .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=5> .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=6> .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=1> .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=3> .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=2> .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id=5> .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=8> .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=7> .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=6> .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=5> .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=5> .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=4> .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id=8> .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#location> "English Channel" .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#location> "English Channel" .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#location> "English Channel" .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#location> "English Channel" .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#location> "SW Approaches" .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#location> "English Channel" .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#location> "Mid-Atlantic" .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#bulgarian_commander> "Kaloyan" .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#bulgarian_commander> "Kaloyan" .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#bulgarian_commander> "Kaloyan" .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#bulgarian_commander> "Kaloyan" .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#bulgarian_commander> "Unknown" .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#bulgarian_commander> "Boril" .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#bulgarian_commander> "Boril" .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#bulgarian_commander> "Ivan Asen II" .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#id> "13"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#id> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#id> "7"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#id> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#id> "9"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#id> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#id> "11"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#id> "12"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#injured> "9"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#injured> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#injured> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#note> "Dantewada, Chhattisgarh" .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#note> "Dantewada, Chhattisgarh" .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#note> "Erraboru, Chhattisgarh" .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#note> "East Champaran, Bihar" .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#note> "Gajapati, Odisha" .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#note> "Sundargarh, Odisha" .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#note> "Dantewada, Chhattisgarh" .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#note> "Dantewada, Chhattisgarh" .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#note> "Kanker, Chhattisgarh" .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#note> "Dantewada, Chhattisgarh" .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#note> "WestMidnapore, West Bengal" .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#note> "Bastar, Chattisgarh" .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#note> "Bokaro, Jharkhand" .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#name> "Battle of Adrianople" .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#name> "Battle of Serres" .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#name> "Battle of Rusion" .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#name> "Battle of Rodosto" .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#name> "Battle of Messinopolis" .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#name> "Battle of Boruy" .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#name> "Battle of Philippopolis" .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#name> "Siege of Constantinople" .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#tonnage> "t" .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#tonnage> "t" .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#tonnage> "t" .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#tonnage> "391" .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#tonnage> "t" .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#tonnage> "t" .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#tonnage> "225" .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#id> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#id> "7"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#id> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#id> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#id> "7"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#killed> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#killed> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#killed> "25"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#killed> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#killed> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#killed> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#killed> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#killed> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#killed> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#killed> "29"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#killed> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#killed> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#killed> "14"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#date> "14 April 1205" .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#date> "June 1205" .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#date> "31 January 1206" .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#date> "February 1206" .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#date> "4 September 1207" .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#date> "June 1205" .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#date> "31 June 1208" .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#date> "1235" .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#result> "Bulgarian victory" .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#result> "Latin victory" .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#result> "Two Year Truce" .
+<http://valuenet/ontop/death/id=1> <http://valuenet/ontop/death#caused_by_ship_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=2> <http://valuenet/ontop/death#caused_by_ship_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=13> <http://valuenet/ontop/death#caused_by_ship_id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=3> <http://valuenet/ontop/death#caused_by_ship_id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=4> <http://valuenet/ontop/death#caused_by_ship_id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=5> <http://valuenet/ontop/death#caused_by_ship_id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=6> <http://valuenet/ontop/death#caused_by_ship_id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=7> <http://valuenet/ontop/death#caused_by_ship_id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=8> <http://valuenet/ontop/death#caused_by_ship_id> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=9> <http://valuenet/ontop/death#caused_by_ship_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=10> <http://valuenet/ontop/death#caused_by_ship_id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=11> <http://valuenet/ontop/death#caused_by_ship_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/death/id=12> <http://valuenet/ontop/death#caused_by_ship_id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#ship_type> "Brig" .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#ship_type> "Brig" .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#ship_type> "Brig" .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#ship_type> "18-gun Brig" .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#ship_type> "Brig" .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#ship_type> "Brig" .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#ship_type> "8 gun Brig" .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#disposition_of_ship> "Captured" .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#disposition_of_ship> "Captured" .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#disposition_of_ship> "Captured" .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#disposition_of_ship> "Wrecked" .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#disposition_of_ship> "Scuttled" .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#disposition_of_ship> "Sank" .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#disposition_of_ship> "Captured" .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#name> "Lettice" .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#name> "Bon Accord" .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#name> "Mary" .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#name> "HMS Avon" .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#name> "Three Brothers" .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#name> "Bacchus" .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#name> "HMS Atalanta" .
+<http://valuenet/ontop/battle/id=1> <http://valuenet/ontop/battle#latin_commander> "Baldwin I" .
+<http://valuenet/ontop/battle/id=2> <http://valuenet/ontop/battle#latin_commander> "Unknown" .
+<http://valuenet/ontop/battle/id=3> <http://valuenet/ontop/battle#latin_commander> "Thierry de Termond" .
+<http://valuenet/ontop/battle/id=4> <http://valuenet/ontop/battle#latin_commander> "Unknown" .
+<http://valuenet/ontop/battle/id=5> <http://valuenet/ontop/battle#latin_commander> "Boniface of Montferrat" .
+<http://valuenet/ontop/battle/id=6> <http://valuenet/ontop/battle#latin_commander> "Henry I" .
+<http://valuenet/ontop/battle/id=7> <http://valuenet/ontop/battle#latin_commander> "Henry I" .
+<http://valuenet/ontop/battle/id=8> <http://valuenet/ontop/battle#latin_commander> "John of Brienne" .
+<http://valuenet/ontop/ship/id=1> <http://valuenet/ontop/ship#lost_in_battle> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=2> <http://valuenet/ontop/ship#lost_in_battle> "7"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=3> <http://valuenet/ontop/ship#lost_in_battle> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=4> <http://valuenet/ontop/ship#lost_in_battle> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=5> <http://valuenet/ontop/ship#lost_in_battle> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=6> <http://valuenet/ontop/ship#lost_in_battle> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://valuenet/ontop/ship/id=7> <http://valuenet/ontop/ship#lost_in_battle> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
