@@ -10,3 +10,7 @@ To solve both issues, we introduce ValueNet4SPARQL, an end-to-end NL-to-SPARQL s
 It is important to note that both the databases and developement set SQL queries have been improved to be conformant with PostgreSQL and best practices in data base design.
 
 There are a number of queries that return false negative results sets. Most often these are queries that have a LIMIT 1 that would otherwise return several rows that have the same values in the column by which they are ordered. See queries and additional explanations in FalseNegatives file.
+
+
+## SETUP
+You can either install the script with pip (pip install -r requirements.txt) or with pipenv (pipenv install). After installing you can run the tasks either from the command line or in PyCharm. To run then in PyCharm, simply import the run configurations from the .run folder.
