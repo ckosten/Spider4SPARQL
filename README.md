@@ -12,6 +12,8 @@ It is important to note that both the databases and developement set SQL queries
 There are a number of queries that return false negative results sets. Most often these are queries that have a LIMIT 1 that would otherwise return several rows that have the same values in the column by which they are ordered. Other queries that are considered false negatives are queries that use AVG and SUM aggregations, the PostgreSQL queries return slightly more precise results sets than SPARQL. Additionally, there are 4 queries with very long results sets, to prevent a distorted output file, they have been removed from the output csv and insteaed added to the second sheet of the `false_negatives.xlsx` . 
 The materialized wta_1 knowledge graph is located at this [google drive link](https://drive.google.com/file/d/1296XYgEcizHEREKMahFCemO8TVRPe3so/view?usp=sharing)
 
+The latest evaluation results for the SemQL to SQL evaluation and the SemQL to SPARQL evaluation with Enriched Knowledge Graphs are located in ValueNet4SPARQL/src/experiments/SparqlPrediction. 
+
 ## Code
 
 _Disclaimer_: this code is largely based on the ValueNet (https://github.com/brunnurs/valuenet) repository. 
