@@ -9,4 +9,14 @@ To solve both issues, we introduce ValueNet4SPARQL, an end-to-end NL-to-SPARQL s
 
 It is important to note that both the databases and developement set SQL queries have been improved to be conformant with PostgreSQL and best practices in data base design.
 
-There are a number of queries that return false negative results sets. Most often these are queries that have a LIMIT 1 that would otherwise return several rows that have the same values in the column by which they are ordered. See queries and additional explanations in FalseNegatives file.
+There are a number of queries that return false negative results sets. Most often these are queries that have a LIMIT 1 that would otherwise return several rows that have the same values in the column by which they are ordered. Other queries that are considered false negatives are queries that use AVG and SUM aggregations, the PostgreSQL queries return slightly more precise results sets than SPARQL. Additionally, there are 4 queries with very long results sets, to prevent a distorted output file, they have been removed from the output csv and insteaed added to the second sheet of the `false_negatives.xlsx` . 
+The materialized wta_1 knowledge graph is located at this [google drive link](https://drive.google.com/file/d/1296XYgEcizHEREKMahFCemO8TVRPe3so/view?usp=sharing)
+
+## Code
+
+_Disclaimer_: this code is largely based on the ValueNet (https://github.com/brunnurs/valuenet) repository, where the original Valuenet evaluation is available. 
+
+### SETUP
+You can either install the script with pip `pip install -r requirements.txt` or with pipenv `pipenv install` . After installing you can run the tasks either from the command line or in PyCharm. To run then in PyCharm, simply import the run configurations from the .run folder. In addition, you will need to download the spacy en_core_web_sm model with `python -m spacy download en_core_web_sm` 
+
+This setup will run both the evaluation for the semQL to SPARQL translation with the enriched Knowledge Graphs, and the evaluation for the semQL to SQL translation from the original system ValueNet. To run the evaluation for the baseline knowledge graphs you will need to replace the filename with `KG_baseline_ont.json` in both the `playground_evaluation_sparql.py` and `spider_utils_sparql.py` . 
