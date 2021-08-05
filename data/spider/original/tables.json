@@ -7545,10 +7545,6 @@
             [
                 12,
                 6
-            ],
-            [
-                1,
-                10
             ]
         ],
         "primary_keys": [
@@ -26980,7 +26976,7 @@
             "text",
             "text"
         ],
-        "db_id": "cre_Doc_Template_Mgt",
+        "db_id": "cre_doc_template_mgt",
         "foreign_keys": [
             [
                 5,

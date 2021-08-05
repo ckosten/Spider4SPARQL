@@ -1,7 +1,6 @@
 import os
 
 from config import read_arguments_evaluation
-#from intermediate_representation.sem2sparql.sem2SPARQL import transform_semQL_to_sparql
 from intermediate_representation.sem2sql.sem2SQL import transform_semQL_to_sql
 from spider import spider_utils
 from spider.evaluation.spider_evaluation import build_foreign_key_map_from_json, spider_evaluation

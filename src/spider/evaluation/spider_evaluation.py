@@ -18,17 +18,25 @@
 #   'union': None/sql
 # }
 ################################
-
+import decimal
+from collections import Counter
+from datetime import datetime
 import os, sys
 import json
-import sqlite3
+import psycopg2
+import tqdm
+
+import sparql
 import traceback
 import argparse
+import sys
+import time
 
-import wandb
-from tqdm import tqdm
-
-from spider.evaluation.process_sql import tokenize, get_schema, get_tables_with_alias, Schema, get_sql
+sys.path.append('/src')
+import pandas as pd
+from spider.evaluation.process_sql import tokenize, get_schema, get_tables_with_alias, Schema, get_sql, \
+    get_schema_from_json
+from spider.evaluation.output_format import Format
 
 # Flag to disable value evaluation
 DISABLE_VALUE = True
@@ -396,51 +404,42 @@ class Evaluator:
 
         label_total, pred_total, cnt, cnt_wo_agg = eval_sel(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['select'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['select'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
         acc, rec, f1 = get_scores(cnt_wo_agg, pred_total, label_total)
-        res['select(no AGG)'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['select(no AGG)'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt, cnt_wo_agg = eval_where(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['where'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['where'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
         acc, rec, f1 = get_scores(cnt_wo_agg, pred_total, label_total)
-        res['where(no OP)'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['where(no OP)'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_group(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['group(no Having)'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['group(no Having)'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total,
+                                   'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_having(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['group'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['group'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_order(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['order'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['order'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_and_or(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['and/or'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['and/or'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_IUEN(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['IUEN'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['IUEN'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         label_total, pred_total, cnt = eval_keywords(pred, label)
         acc, rec, f1 = get_scores(cnt, pred_total, label_total)
-        res['keywords'] = {'acc': acc, 'rec': rec, 'f1': f1,'label_total':label_total,'pred_total':pred_total}
+        res['keywords'] = {'acc': acc, 'rec': rec, 'f1': f1, 'label_total': label_total, 'pred_total': pred_total}
 
         return res
-
-
-def isValidSQL(sql, db):
-    conn = sqlite3.connect(db)
-    cursor = conn.cursor()
-    try:
-        cursor.execute(sql)
-    except:
-        return False
-    return True
 
 
 def print_scores(scores, etype, tb_writer, training_step, print_stdout):
@@ -449,15 +448,16 @@ def print_scores(scores, etype, tb_writer, training_step, print_stdout):
                      'group', 'order', 'and/or', 'IUEN', 'keywords']
 
     if etype in ["all", "match"]:
-        matching_accuracy_with_counts = {level: "{} ({})".format(scores[level]['exact'], scores[level]['count']) for level in levels}
+        matching_accuracy_with_counts = {level: "{} ({})".format(scores[level]['exact'], scores[level]['count']) for
+                                         level in levels}
         matching_accuracy = {level: scores[level]['exact'] for level in levels}
     else:
-        matching_accuracy_with_counts = {level: "{} ({})".format(scores[level]['exec'], scores[level]['count']) for level in levels}
+        matching_accuracy_with_counts = {level: "{} ({})".format(scores[level]['exec'], scores[level]['count']) for
+                                         level in levels}
         matching_accuracy = {level: scores[level]['exec'] for level in levels}
 
     if tb_writer:
         tb_writer.add_scalars('spider_evaluation_acc', matching_accuracy, training_step)
-        wandb.log(matching_accuracy, step=training_step)
 
     if print_stdout:
         print("{:20} {:20} {:20} {:20} {:20} {:20}".format("", *levels))
@@ -512,55 +512,58 @@ def spider_evaluation(gold, predict, db_dir, etype, kmaps, tb_writer=None, train
         scores[level]['exec'] = 0
         for type_ in partial_types:
             scores[level]['partial'][type_] = {'acc': 0., 'rec': 0., 'f1': 0.,'acc_count':0,'rec_count':0}
-
+    schemas= {}
     eval_err_num = 0
-    for p, g in zip(tqdm(plist), tqdm(glist)):
+    for p, g in zip(plist, glist):
         p_str = p[0]
-        g_str, db, _ = g
+        global nl_q
+        g_str, db, nl_q = g
         db_name = db
-        db = os.path.join(db_dir, db, db + ".sqlite")
-        schema = Schema(get_schema(db))
-        g_sql = get_sql(schema, g_str)
+        if db_name not in schemas.keys():
+            schemas[db_name] = Schema(get_schema(db))
+        g_sql = get_sql(schemas[db_name], g_str)
+
+        global hardness
         hardness = evaluator.eval_hardness(g_sql)
         scores[hardness]['count'] += 1
         scores['all']['count'] += 1
 
         try:
-            p_sql = get_sql(schema, p_str)
+                p_sql = get_sql(schemas[db_name], p_str)
         except:
             # If p_sql is not valid, then we will use an empty sql to evaluate with the correct sql
             p_sql = {
-            "except": None,
-            "from": {
-                "conds": [],
-                "table_units": []
-            },
-            "groupBy": [],
-            "having": [],
-            "intersect": None,
-            "limit": None,
-            "orderBy": [],
-            "select": [
-                False,
-                []
-            ],
-            "union": None,
-            "where": []
+                "except": None,
+                "from": {
+                    "conds": [],
+                    "table_units": []
+                },
+                "groupBy": [],
+                "having": [],
+                "intersect": None,
+                "limit": None,
+                "orderBy": [],
+                "select": [
+                    False,
+                    []
+                ],
+                "union": None,
+                "where": []
             }
             eval_err_num += 1
             print("eval_err_num:{}".format(eval_err_num))
 
-        # rebuild sql for value evaluation
+        #rebuild sql for value evaluation
         kmap = kmaps[db_name]
-        g_valid_col_units = build_valid_col_units(g_sql['from']['table_units'], schema)
+        g_valid_col_units = build_valid_col_units(g_sql['from']['table_units'], schemas[db_name])
         g_sql = rebuild_sql_val(g_sql)
         g_sql = rebuild_sql_col(g_valid_col_units, g_sql, kmap)
-        p_valid_col_units = build_valid_col_units(p_sql['from']['table_units'], schema)
+        p_valid_col_units = build_valid_col_units(p_sql['from']['table_units'], schemas[db_name])
         p_sql = rebuild_sql_val(p_sql)
         p_sql = rebuild_sql_col(p_valid_col_units, p_sql, kmap)
 
         if etype in ["all", "exec"]:
-            exec_score = eval_exec_match(db, p_str, g_str, p_sql, g_sql)
+            exec_score = eval_exec_match(db_name, p_str, g_str, p_sql, g_sql)
             if exec_score:
                 scores[hardness]['exec'] += 1
                 scores['all']['exec'] += 1
@@ -571,7 +574,7 @@ def spider_evaluation(gold, predict, db_dir, etype, kmaps, tb_writer=None, train
                     print("")
 
         if etype in ["all", "match"]:
-            exact_score = evaluator.eval_exact_match(p_sql, g_sql)
+            exact_score = evaluator.eval_exact_match(sparql, g_sql)
             partial_scores = evaluator.partial_scores
             if exact_score == 0:
                 if print_stdout:
@@ -604,6 +607,7 @@ def spider_evaluation(gold, predict, db_dir, etype, kmaps, tb_writer=None, train
                 'partial': partial_scores
             })
 
+    Format.exportDf_SQL()
     for level in levels:
         if scores[level]['count'] == 0:
             continue
@@ -628,42 +632,96 @@ def spider_evaluation(gold, predict, db_dir, etype, kmaps, tb_writer=None, train
                 else:
                     scores[level]['partial'][type_]['f1'] = \
                         2.0 * scores[level]['partial'][type_]['acc'] * scores[level]['partial'][type_]['rec'] / (
-                        scores[level]['partial'][type_]['rec'] + scores[level]['partial'][type_]['acc'])
+                                scores[level]['partial'][type_]['rec'] + scores[level]['partial'][type_]['acc'])
 
     return print_scores(scores, etype, tb_writer, training_step, print_stdout)
 
 
-def eval_exec_match(db, p_str, g_str, pred, gold):
+def psql_conn(db_name, query):
+    conn = None
+    counter = 0
+    while conn is None:
+        try:
+            conn = psycopg2.connect(dbname=db_name, user="valuenet4sparql", password= "valuenet4sparql", host= "biosoda.cloudlab.zhaw.ch", port="5432")
+        except Exception as e:
+            counter = counter + 1
+            if counter > 3:
+                raise e
+
+    q_values = []
+    try:
+        cursor = conn.cursor()
+        cursor.execute(query)
+        q_values = cursor.fetchall()
+        cursor.close()
+    except Exception as e:
+        print("could not execute query '{}'. Exception: {}. Database: {}".format(query, e, db_name))
+    finally:
+        conn.close()
+    return q_values
+
+def get_sql_values(q_values):
+    #this function gets the values from the sql connection, since there are two sql statements being run, it made more sense to have a function
+    q_res = []
+    for q_value in q_values:
+        counter = 0
+        q_value = list(q_value)
+        for q in q_value:
+            if isinstance(q, decimal.Decimal):
+                q_value[counter] = round(float(q), 12)
+            elif isinstance(q, float):
+                q_value[counter] = round(q, 12)
+            elif isinstance(q, datetime):
+                q_value[counter] = datetime.strftime(q, '%Y-%m-%d %H:%M:%S')
+            counter += 1
+        q_res.append(tuple(q_value))
+    return q_res
+
+
+def eval_exec_match(db_name, p_str, g_str, p_sql, g_sql):
     """
     return 1 if the values between prediction and gold are matching
     in the corresponding index. Currently not support multiple col_unit(pairs).
     """
-    # print("db: {}           sql-pred: {}            sql-gold: {}".format(db, p_str, g_str))
-    conn = sqlite3.connect(db)
-    cursor = conn.cursor()
+    # print("db: {}           sql-pred: {}            sql-gold: {}".format(db, sparql_str, g_str))
+    exception = ''
+
+    p_values = psql_conn(db_name, p_str)
+    p_res = get_sql_values(p_values)
+    q_values = psql_conn(db_name, g_str)
+    q_res = get_sql_values(q_values)
+    eval_all(db_name, nl_q, p_res, q_res, p_str, g_str, exception)
+
+def compare_lists(firstList, secondList):
+    return Counter(firstList) == Counter(secondList)
+
+
+def eval_all(db_name,nl_q, p_res, q_res, p_str, g_str, exception):
     try:
-        cursor.execute(p_str)
-        p_res = cursor.fetchall()
+        if exception is not None and exception != '':
+            Format.appendRow_SQL(db_name, nl_q, g_str, q_res, p_str, p_res, hardness, exception=exception)
+        elif compare_lists(q_res, p_res):
+            Format.appendRow_SQL(db_name, nl_q, g_str, q_res, p_str, p_res, hardness, isMatch=True, score=1)
+        else:
+            Format.appendRow_SQL(db_name, nl_q, g_str, q_res, p_str, p_res, hardness, isMatch=False, score=0)
+
     except Exception as e:
-        print("could not execute query '{}'. Exception: {}. Database: {}".format(p_str, e, db))
+        print("Type Error. p_res:{}, q_res:{}".format(type(p_res), type(q_res)))
         return False
 
-    cursor.execute(g_str)
-    q_res = cursor.fetchall()
+def res_map(res, val_units):
+    """
+    Notes Ursin: The val_units are the columns in the select and "res" is the results from the select, one tuple per row.
+    What we do now is building up a map with columns as key and a list of values from the sql-select.
+    Then we simply compare the two maps. That way we don't care about the selection-order.
+    """
+    # zip & iterate over both, val_units and res and compare
 
-    conn.close()
-
-    def res_map(res, val_units):
-        """
-        Notes Ursin: The val_units are the columns in the select and "res" is the results from the select, one tuple per row.
-        What we do now is building up a map with columns as key and a list of values from the sql-select.
-        Then we simply compare the two maps. That way we don't care about the selection-order.
-        """
-        rmap = {}
-        for idx, val_unit in enumerate(val_units):
-            key = tuple(val_unit[1]) if not val_unit[2] else (val_unit[0], tuple(val_unit[1]), tuple(val_unit[2]))
-            rmap[key] = [r[idx] for r in res]
-        return rmap
+    rmap = {}
+    for idx, val_unit in enumerate(val_units):
+        key = tuple(val_unit[1]) if not val_unit[2] else (val_unit[0], tuple(val_unit[1]), tuple(val_unit[2]))
+        rmap[key] = [r[idx] for r in res]
+    return rmap
 
     p_val_units = [unit[1] for unit in pred['select'][1]]
     q_val_units = [unit[1] for unit in gold['select'][1]]

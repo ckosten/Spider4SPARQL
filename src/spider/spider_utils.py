@@ -15,7 +15,6 @@ import time
 import copy
 import numpy as np
 import os
-import torch
 import ontospy
 from nltk.stem import WordNetLemmatizer
 
@@ -131,10 +130,9 @@ def load_data_new(sql_path, table_data, use_small=False):
 
 def load_dataset(dataset_dir, use_small=False):
     print("Loading from datasets...")
-    table_path= ('/Users/katekosten/Projects/Valuenet4Sparql/spider/tables.json')
-    #table_path = os.path.join(dataset_dir, "original", "tables.json")
+    table_path = os.path.join(dataset_dir, "original", "tables.json")
     train_path = os.path.join(dataset_dir, "train.json")
-    dev_path = os.path.join(dataset_dir, "dev_no_duplicates.json") #changed momentarily from dev.json to more quickly check sparql queries
+    dev_path = os.path.join(dataset_dir, "dev_PostgreSQL_compatible.json")
     with open(table_path, encoding='utf-8') as inf:
         # table_data is basically a dict with all the 200 (in train ca. 166) datasets of spider.
         # Each sub-dict contains the name of all tables, as well as relations between them (foreign keys, primary keys)
