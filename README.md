@@ -14,7 +14,7 @@ The materialized wta_1 knowledge graph is located at this [google drive link](ht
 
 ## Code
 
-_Disclaimer_: this code is largely based on the ValueNet (https://github.com/brunnurs/valuenet) repository, where the original Valuenet evaluation is available. 
+_Disclaimer_: this code is largely based on the ValueNet (https://github.com/brunnurs/valuenet) repository. 
 
 ### SETUP
 You can either install the script with pip `pip install -r requirements.txt` or with pipenv `pipenv install` . After installing you can run the tasks either from the command line or in PyCharm. To run then in PyCharm, simply import the run configurations from the .run folder. In addition, you will need to download the spacy en_core_web_sm model with `python -m spacy download en_core_web_sm` 
