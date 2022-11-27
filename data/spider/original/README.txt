@@ -1,21 +1,12 @@
 This folder contains the Spider training and dev data sets for the EMNLP 2018 paper Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task.
 
 It contains the following files:
-
-- train_spider.json
-	# Training Examples: 7000
-	# Databases:		 140
-- train_others.json
-	# Training Examples: 1659
-	# Databases:		 6
 - dev.json
 	# Training Examples: 1034
 	# Databases:		 20
 - tables.json
 	# Databases: 	     166
 - dev_gold.sql
-- train_gold.sql
-- database/
 - README.txt
 
 The official final Spider training data set combines train_spider.json and train_others.json.
