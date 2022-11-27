@@ -7,5 +7,5 @@ This repository also contains the Knowledge Graph versions of the Spider dev set
 
 It is important to note that both the databases and developement set SQL queries have been improved to be conformant with PostgreSQL and best practices in data base design.
 
-The materialized wta_1 knowledge graph is located at this [google drive link](https://drive.google.com/file/d/1296XYgEcizHEREKMahFCemO8TVRPe3so/view?usp=sharing)
+The materialized wta_1 knowledge graph is located at this [google drive link](https://drive.google.com/file/d/1TSMP2X5Dp7F7TI2uZHgwFaX-m4WGWT-F/view?usp=share_link)
 
