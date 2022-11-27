@@ -1,15 +1,16 @@
+
 create table if not exists area_code_state (
-       area_code integer primary key not null
+       area_code integer not null
      ,  state varchar(2) not null
      ,  primary key (area_code)
      );
      create table if not exists contestants (
-       contestant_number integer primary key
+       contestant_number integer
      ,  contestant_name varchar(50) not null
      ,  primary key (contestant_number)
      );
      create table if not exists votes (
-       vote_id integer not null primary key
+       vote_id integer not null
      ,  phone_number varchar(10) not null
      ,  area_code integer not null
      ,  contestant_number integer not null
@@ -18,7 +19,6 @@ create table if not exists area_code_state (
      , 	foreign key (contestant_number) references contestants(contestant_number)
      );
      create index idx_votes_idx_votes_phone_number on votes (phone_number);
- 
  
  INSERT INTO AREA_CODE_STATE VALUES(201,'NJ');
  INSERT INTO AREA_CODE_STATE VALUES(202,'DC');
