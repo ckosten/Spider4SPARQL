@@ -1,5 +1,5 @@
 # Natural Language Sparql Pairs
-1,034 Dev queries are available in a csv file located in [natural language sparql pairs dev file](dev_nl_sparql.csv)
+1,034 Dev queries are available in a csv file located in [natural language sparql pairs dev file](nl_sparql_pairs/dev/dev_nl_sparql.csv)
 8,659 Train queries are available in a csv file located in [natural language sparql pairs train file]()
 
 # Materialized Knowledge Graphs
