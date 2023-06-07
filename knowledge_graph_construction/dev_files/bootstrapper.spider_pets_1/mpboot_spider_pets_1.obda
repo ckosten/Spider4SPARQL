@@ -1,0 +1,29 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/pets/petid={petid}> a <http://valuenet/ontop/pets> ; <http://valuenet/ontop/pets#petid> {petid}^^xsd:integer ; <http://valuenet/ontop/pets#pettype> {pettype}^^xsd:string ; <http://valuenet/ontop/pets#pet_age> {pet_age}^^xsd:integer ; <http://valuenet/ontop/pets#weight> {weight}^^xsd:double . 
+source		SELECT * FROM "pets_1"."pets"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/student/stuid={stuid}> a <http://valuenet/ontop/student> ; <http://valuenet/ontop/student#stuid> {stuid}^^xsd:integer ; <http://valuenet/ontop/student#lname> {lname}^^xsd:string ; <http://valuenet/ontop/student#fname> {fname}^^xsd:string ; <http://valuenet/ontop/student#age> {age}^^xsd:integer ; <http://valuenet/ontop/student#sex> {sex}^^xsd:string ; <http://valuenet/ontop/student#major> {major}^^xsd:integer ; <http://valuenet/ontop/student#advisor> {advisor}^^xsd:integer ; <http://valuenet/ontop/student#city_code> {city_code}^^xsd:string . 
+source		SELECT * FROM "pets_1"."student"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		_:ontop-bnode-1/{stuid_coal}/{petid_coal} a <http://valuenet/ontop/has_pet> ; <http://valuenet/ontop/has_pet#stuid> {stuid}^^xsd:integer ; <http://valuenet/ontop/has_pet#petid> {petid}^^xsd:integer . 
+source		SELECT COALESCE("pets_1"."has_pet"."stuid", 0) AS stuid_coal, ("pets_1"."has_pet"."stuid") AS stuid, COALESCE("pets_1"."has_pet"."petid", 0) AS petid_coal, ("pets_1"."has_pet"."petid") AS petid FROM "pets_1"."has_pet"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		_:ontop-bnode-1/{has_pet_stuid_coal}/{has_pet_petid_coal} <http://valuenet/ontop/has_pet#ref-petid> <http://valuenet/ontop/pets/petid={pets_petid}> . 
+source		SELECT COALESCE("pets_1"."has_pet"."stuid", 0) AS has_pet_stuid_coal, ("pets_1"."has_pet"."stuid") AS has_pet_stuid, COALESCE("pets_1"."has_pet"."petid", 0) AS has_pet_petid_coal, ("pets_1"."has_pet"."petid") AS has_pet_petid, "pets_1"."pets"."petid" AS pets_petid FROM "pets_1"."has_pet", "pets_1"."pets" WHERE "pets_1"."has_pet"."petid" = "pets_1"."pets"."petid"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		_:ontop-bnode-1/{has_pet_stuid_coal}/{has_pet_petid_coal} <http://valuenet/ontop/has_pet#ref-stuid> <http://valuenet/ontop/student/stuid={student_stuid}> . 
+source		SELECT COALESCE("pets_1"."has_pet"."stuid", 0) AS has_pet_stuid_coal, ("pets_1"."has_pet"."stuid") AS has_pet_stuid, COALESCE("pets_1"."has_pet"."petid", 0) AS has_pet_petid_coal, ("pets_1"."has_pet"."petid") AS has_pet_petid, "pets_1"."student"."stuid" AS student_stuid FROM "pets_1"."has_pet", "pets_1"."student" WHERE "pets_1"."has_pet"."stuid" = "pets_1"."student"."stuid"
+]]
+

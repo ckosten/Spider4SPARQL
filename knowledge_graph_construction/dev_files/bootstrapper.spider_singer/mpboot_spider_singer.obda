@@ -1,0 +1,21 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/song/song_id={song_id}> a <http://valuenet/ontop/song> ; <http://valuenet/ontop/song#song_id> {song_id}^^xsd:integer ; <http://valuenet/ontop/song#title> {title}^^xsd:string ; <http://valuenet/ontop/song#singer_id> {singer_id}^^xsd:integer ; <http://valuenet/ontop/song#sales> {sales}^^xsd:double ; <http://valuenet/ontop/song#highest_position> {highest_position}^^xsd:double . 
+source		SELECT * FROM "singer"."song"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/song/song_id={song_song_id}> <http://valuenet/ontop/song#ref-singer_id> <http://valuenet/ontop/singer/singer_id={singer_singer_id}> . 
+source		SELECT "singer"."song"."song_id" AS song_song_id, "singer"."singer"."singer_id" AS singer_singer_id FROM "singer"."song", "singer"."singer" WHERE "singer"."song"."singer_id" = "singer"."singer"."singer_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/singer/singer_id={singer_id}> a <http://valuenet/ontop/singer> ; <http://valuenet/ontop/singer#singer_id> {singer_id}^^xsd:integer ; <http://valuenet/ontop/singer#name> {name}^^xsd:string ; <http://valuenet/ontop/singer#birth_year> {birth_year}^^xsd:double ; <http://valuenet/ontop/singer#net_worth_millions> {net_worth_millions}^^xsd:double ; <http://valuenet/ontop/singer#citizenship> {citizenship}^^xsd:string . 
+source		SELECT * FROM "singer"."singer"
+]]
+

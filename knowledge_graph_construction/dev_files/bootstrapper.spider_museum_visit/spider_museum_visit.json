@@ -1,0 +1,4 @@
+{
+    "schema" : "museum_visit",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

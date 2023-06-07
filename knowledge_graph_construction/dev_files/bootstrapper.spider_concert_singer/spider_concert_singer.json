@@ -1,0 +1,4 @@
+{
+    "schema" : "concert_singer",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

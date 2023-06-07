@@ -1,0 +1,29 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/ship/id={id}> a <http://valuenet/ontop/ship> ; <http://valuenet/ontop/ship#lost_in_battle> {lost_in_battle}^^xsd:integer ; <http://valuenet/ontop/ship#id> {id}^^xsd:integer ; <http://valuenet/ontop/ship#name> {name}^^xsd:string ; <http://valuenet/ontop/ship#tonnage> {tonnage}^^xsd:string ; <http://valuenet/ontop/ship#ship_type> {ship_type}^^xsd:string ; <http://valuenet/ontop/ship#location> {location}^^xsd:string ; <http://valuenet/ontop/ship#disposition_of_ship> {disposition_of_ship}^^xsd:string . 
+source		SELECT * FROM "battle_death"."ship"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/ship/id={ship_id}> <http://valuenet/ontop/ship#ref-lost_in_battle> <http://valuenet/ontop/battle/id={battle_id}> . 
+source		SELECT "battle_death"."ship"."id" AS ship_id, "battle_death"."battle"."id" AS battle_id FROM "battle_death"."ship", "battle_death"."battle" WHERE "battle_death"."ship"."lost_in_battle" = "battle_death"."battle"."id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/death/id={id}> a <http://valuenet/ontop/death> ; <http://valuenet/ontop/death#caused_by_ship_id> {caused_by_ship_id}^^xsd:integer ; <http://valuenet/ontop/death#id> {id}^^xsd:integer ; <http://valuenet/ontop/death#note> {note}^^xsd:string ; <http://valuenet/ontop/death#killed> {killed}^^xsd:integer ; <http://valuenet/ontop/death#injured> {injured}^^xsd:integer . 
+source		SELECT * FROM "battle_death"."death"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		<http://valuenet/ontop/death/id={death_id}> <http://valuenet/ontop/death#ref-caused_by_ship_id> <http://valuenet/ontop/ship/id={ship_id}> . 
+source		SELECT "battle_death"."death"."id" AS death_id, "battle_death"."ship"."id" AS ship_id FROM "battle_death"."death", "battle_death"."ship" WHERE "battle_death"."death"."caused_by_ship_id" = "battle_death"."ship"."id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		<http://valuenet/ontop/battle/id={id}> a <http://valuenet/ontop/battle> ; <http://valuenet/ontop/battle#id> {id}^^xsd:integer ; <http://valuenet/ontop/battle#name> {name}^^xsd:string ; <http://valuenet/ontop/battle#date> {date}^^xsd:string ; <http://valuenet/ontop/battle#bulgarian_commander> {bulgarian_commander}^^xsd:string ; <http://valuenet/ontop/battle#latin_commander> {latin_commander}^^xsd:string ; <http://valuenet/ontop/battle#result> {result}^^xsd:string . 
+source		SELECT * FROM "battle_death"."battle"
+]]
+

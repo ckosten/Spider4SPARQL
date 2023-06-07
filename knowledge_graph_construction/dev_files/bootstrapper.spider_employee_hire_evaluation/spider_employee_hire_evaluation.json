@@ -1,0 +1,4 @@
+{
+    "schema" : "employee_hire_evaluation",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

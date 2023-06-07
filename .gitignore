@@ -1,2 +1,7 @@
 /.idea/
 /venv/
+.venv/
+.history/
+.DS_Store
+.gitignore
+```
