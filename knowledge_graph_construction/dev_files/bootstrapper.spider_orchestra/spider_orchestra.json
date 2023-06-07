@@ -1,0 +1,4 @@
+{
+    "schema" : "orchestra",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

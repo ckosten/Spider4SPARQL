@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#ref-conductor_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/orchestra#ref-conductor_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/conductor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#ref-orchestra_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/performance#ref-orchestra_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/orchestra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#ref-performance_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/show#ref-performance_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/performance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/conductor#age -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/conductor#age">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/conductor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/conductor#conductor_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/conductor#conductor_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/conductor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/conductor#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/conductor#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/conductor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/conductor#nationality -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/conductor#nationality">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/conductor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/conductor#year_of_work -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/conductor#year_of_work">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/conductor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#conductor_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#conductor_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#major_record_format -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#major_record_format">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#orchestra -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#orchestra">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#orchestra_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#orchestra_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#record_company -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#record_company">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra#year_of_founded -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/orchestra#year_of_founded">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/orchestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#date -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#date">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#official_ratings_millions -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#official_ratings_millions">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#orchestra_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#orchestra_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#performance_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#performance_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#share -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#share">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#type -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#type">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/performance#weekly_rank -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/performance#weekly_rank">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/performance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#attendance -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/show#attendance">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#if_first_show -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/show#if_first_show">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#performance_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/show#performance_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#result -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/show#result">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/show#show_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/show#show_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/show"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/conductor -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/conductor"/>
+    
+
+
+    <!-- http://valuenet/ontop/orchestra -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/orchestra"/>
+    
+
+
+    <!-- http://valuenet/ontop/performance -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/performance"/>
+    
+
+
+    <!-- http://valuenet/ontop/show -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/show"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,4 @@
+{
+    "schema" : "dog_kennels",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/votes#ref-area_code -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/votes#ref-area_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/area_code_state"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#ref-contestant_number -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/votes#ref-contestant_number">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/contestants"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/area_code_state#area_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/area_code_state#area_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/area_code_state"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/area_code_state#state -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/area_code_state#state">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/area_code_state"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/contestants#contestant_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/contestants#contestant_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/contestants"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/contestants#contestant_number -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/contestants#contestant_number">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/contestants"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#area_code -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#area_code">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#contestant_number -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#contestant_number">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#created -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#created">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#phone_number -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#phone_number">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#state -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#state">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/votes#vote_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/votes#vote_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/votes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/area_code_state -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/area_code_state"/>
+    
+
+
+    <!-- http://valuenet/ontop/contestants -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/contestants"/>
+    
+
+
+    <!-- http://valuenet/ontop/votes -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/votes"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+
