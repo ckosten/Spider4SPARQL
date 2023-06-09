@@ -6,7 +6,7 @@
 
 This repository contains materialized Knowledge graphs for the dev and train set. 
 
-Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs] https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=sharing
+Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs] (https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=sharing)
 
 Materialized Knowledge Graphs Train set:
 
