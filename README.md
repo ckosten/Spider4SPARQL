@@ -6,9 +6,9 @@
 
 This repository contains materialized Knowledge graphs for the dev and train set. 
 
-Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs](https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=drive_link)
+Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs for dev set](https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=drive_link)
 
-Materialized Knowledge Graphs Train set:
+Materialized Knowledge Graphs Train set: [link to zip file with materialized KGs for train set](https://https://drive.google.com/file/d/1MHfPD0IuF4tWzbJEGSDmUMEavkB4lEs0/view?usp=drive_link)
 
 
 # PostgreSQL compatible data dumps & schemas
