@@ -12,7 +12,7 @@ Materialized Knowledge Graphs Train set: [link to zip file with materialized KGs
 
 
 # PostgreSQL compatible data dumps & schemas
-The 20 Spider dev databases and 166 train databases have been converted from sqlite to PostgreSQL compatible databases. 
+The 20 Spider dev databases and 146 train databases have been converted from sqlite to PostgreSQL compatible databases. 
 
 It is important to note that both the databases and developement set SQL queries have been improved and are now conformant with PostgreSQL and best practices in data base design.
 
