@@ -1,4 +1,0 @@
-{
-    "schema" : "student_transcripts_tracking",
-  "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}

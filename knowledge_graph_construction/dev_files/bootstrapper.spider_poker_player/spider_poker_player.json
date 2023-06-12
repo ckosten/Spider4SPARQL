@@ -1,4 +1,0 @@
-{
-    "schema" : "poker_player",
-  "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}

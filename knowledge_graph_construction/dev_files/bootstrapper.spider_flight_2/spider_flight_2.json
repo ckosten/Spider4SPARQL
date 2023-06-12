@@ -1,4 +1,0 @@
-{
-    "schema" : "flight_2",
-    "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}

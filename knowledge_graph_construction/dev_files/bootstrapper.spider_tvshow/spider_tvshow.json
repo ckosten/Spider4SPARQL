@@ -1,4 +1,0 @@
-{
-    "schema" : "tvshow",
-  "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}

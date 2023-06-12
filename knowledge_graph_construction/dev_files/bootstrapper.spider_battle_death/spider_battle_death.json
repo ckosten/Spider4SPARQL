@@ -1,4 +1,0 @@
-{
-    "schema" : "battle_death",
-    "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}

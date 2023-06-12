@@ -1,4 +1,0 @@
-{
-    "schema" : "real_estate_properties",
-    "nullValue" : {"string" :  "NULL", "numeric" :  0}
-}
