@@ -1,0 +1,4 @@
+{
+    "schema" : "course_teach",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

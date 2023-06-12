@@ -1,0 +1,29 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/country/code={code}> a <http://valuenet/ontop/country> ; <http://valuenet/ontop/country#code> {code}^^xsd:string ; <http://valuenet/ontop/country#name> {name}^^xsd:string ; <http://valuenet/ontop/country#continent> {continent}^^xsd:string ; <http://valuenet/ontop/country#region> {region}^^xsd:string ; <http://valuenet/ontop/country#surfacearea> {surfacearea}^^xsd:double ; <http://valuenet/ontop/country#indepyear> {indepyear}^^xsd:integer ; <http://valuenet/ontop/country#population> {population}^^xsd:integer ; <http://valuenet/ontop/country#lifeexpectancy> {lifeexpectancy}^^xsd:double ; <http://valuenet/ontop/country#gnp> {gnp}^^xsd:double ; <http://valuenet/ontop/country#gnpold> {gnpold}^^xsd:double ; <http://valuenet/ontop/country#localname> {localname}^^xsd:string ; <http://valuenet/ontop/country#governmentform> {governmentform}^^xsd:string ; <http://valuenet/ontop/country#headofstate> {headofstate}^^xsd:string ; <http://valuenet/ontop/country#capital> {capital}^^xsd:integer ; <http://valuenet/ontop/country#code2> {code2}^^xsd:string . 
+source		SELECT * FROM "world_1"."country"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/city/id={id}> a <http://valuenet/ontop/city> ; <http://valuenet/ontop/city#id> {id}^^xsd:integer ; <http://valuenet/ontop/city#name> {name}^^xsd:string ; <http://valuenet/ontop/city#countrycode> {countrycode}^^xsd:string ; <http://valuenet/ontop/city#district> {district}^^xsd:string ; <http://valuenet/ontop/city#population> {population}^^xsd:integer . 
+source		SELECT * FROM "world_1"."city"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/city/id={city_id}> <http://valuenet/ontop/city#ref-countrycode> <http://valuenet/ontop/country/code={country_code}> . 
+source		SELECT "world_1"."city"."id" AS city_id, "world_1"."country"."code" AS country_code FROM "world_1"."city", "world_1"."country" WHERE "world_1"."city"."countrycode" = "world_1"."country"."code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		<http://valuenet/ontop/countrylanguage/countrycode={countrycode};language={language}> a <http://valuenet/ontop/countrylanguage> ; <http://valuenet/ontop/countrylanguage#countrycode> {countrycode}^^xsd:string ; <http://valuenet/ontop/countrylanguage#language> {language}^^xsd:string ; <http://valuenet/ontop/countrylanguage#isofficial> {isofficial}^^xsd:string ; <http://valuenet/ontop/countrylanguage#percentage> {percentage}^^xsd:double . 
+source		SELECT * FROM "world_1"."countrylanguage"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		<http://valuenet/ontop/countrylanguage/countrycode={countrylanguage_countrycode};language={countrylanguage_language}> <http://valuenet/ontop/countrylanguage#ref-countrycode> <http://valuenet/ontop/country/code={country_code}> . 
+source		SELECT "world_1"."countrylanguage"."countrycode" AS countrylanguage_countrycode, "world_1"."countrylanguage"."language" AS countrylanguage_language, "world_1"."country"."code" AS country_code FROM "world_1"."countrylanguage", "world_1"."country" WHERE "world_1"."countrylanguage"."countrycode" = "world_1"."country"."code"
+]]
+

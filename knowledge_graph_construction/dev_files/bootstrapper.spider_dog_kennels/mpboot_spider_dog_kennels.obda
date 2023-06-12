@@ -1,0 +1,69 @@
+[PrefixDeclaration]
+obda:		https://w3id.org/obda/vocabulary#
+xsd:		http://www.w3.org/2001/XMLSchema#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	BOOTSTRAPPED-MAPPING-ID1
+target		<http://valuenet/ontop/owners/owner_id={owner_id}> a <http://valuenet/ontop/owners> ; <http://valuenet/ontop/owners#owner_id> {owner_id}^^xsd:integer ; <http://valuenet/ontop/owners#first_name> {first_name}^^xsd:string ; <http://valuenet/ontop/owners#last_name> {last_name}^^xsd:string ; <http://valuenet/ontop/owners#street> {street}^^xsd:string ; <http://valuenet/ontop/owners#city> {city}^^xsd:string ; <http://valuenet/ontop/owners#state> {state}^^xsd:string ; <http://valuenet/ontop/owners#zip_code> {zip_code}^^xsd:string ; <http://valuenet/ontop/owners#email_address> {email_address}^^xsd:string ; <http://valuenet/ontop/owners#home_phone> {home_phone}^^xsd:string ; <http://valuenet/ontop/owners#cell_number> {cell_number}^^xsd:string . 
+source		SELECT * FROM "dog_kennels"."owners"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID2
+target		<http://valuenet/ontop/treatments/treatment_id={treatment_id}> a <http://valuenet/ontop/treatments> ; <http://valuenet/ontop/treatments#treatment_id> {treatment_id}^^xsd:integer ; <http://valuenet/ontop/treatments#dog_id> {dog_id}^^xsd:integer ; <http://valuenet/ontop/treatments#professional_id> {professional_id}^^xsd:integer ; <http://valuenet/ontop/treatments#treatment_type_code> {treatment_type_code}^^xsd:string ; <http://valuenet/ontop/treatments#date_of_treatment> {date_of_treatment}^^xsd:dateTime ; <http://valuenet/ontop/treatments#cost_of_treatment> {cost_of_treatment}^^xsd:decimal . 
+source		SELECT * FROM "dog_kennels"."treatments"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID3
+target		<http://valuenet/ontop/treatments/treatment_id={treatments_treatment_id}> <http://valuenet/ontop/treatments#ref-dog_id> <http://valuenet/ontop/dogs/dog_id={dogs_dog_id}> . 
+source		SELECT "dog_kennels"."treatments"."treatment_id" AS treatments_treatment_id, "dog_kennels"."dogs"."dog_id" AS dogs_dog_id FROM "dog_kennels"."treatments", "dog_kennels"."dogs" WHERE "dog_kennels"."treatments"."dog_id" = "dog_kennels"."dogs"."dog_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID4
+target		<http://valuenet/ontop/treatments/treatment_id={treatments_treatment_id}> <http://valuenet/ontop/treatments#ref-professional_id> <http://valuenet/ontop/professionals/professional_id={professionals_professional_id}> . 
+source		SELECT "dog_kennels"."treatments"."treatment_id" AS treatments_treatment_id, "dog_kennels"."professionals"."professional_id" AS professionals_professional_id FROM "dog_kennels"."treatments", "dog_kennels"."professionals" WHERE "dog_kennels"."treatments"."professional_id" = "dog_kennels"."professionals"."professional_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID5
+target		<http://valuenet/ontop/treatments/treatment_id={treatments_treatment_id}> <http://valuenet/ontop/treatments#ref-treatment_type_code> <http://valuenet/ontop/treatment_types/treatment_type_code={treatment_types_treatment_type_code}> . 
+source		SELECT "dog_kennels"."treatments"."treatment_id" AS treatments_treatment_id, "dog_kennels"."treatment_types"."treatment_type_code" AS treatment_types_treatment_type_code FROM "dog_kennels"."treatments", "dog_kennels"."treatment_types" WHERE "dog_kennels"."treatments"."treatment_type_code" = "dog_kennels"."treatment_types"."treatment_type_code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID6
+target		<http://valuenet/ontop/treatment_types/treatment_type_code={treatment_type_code}> a <http://valuenet/ontop/treatment_types> ; <http://valuenet/ontop/treatment_types#treatment_type_code> {treatment_type_code}^^xsd:string ; <http://valuenet/ontop/treatment_types#treatment_type_description> {treatment_type_description}^^xsd:string . 
+source		SELECT * FROM "dog_kennels"."treatment_types"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID7
+target		<http://valuenet/ontop/sizes/size_code={size_code}> a <http://valuenet/ontop/sizes> ; <http://valuenet/ontop/sizes#size_code> {size_code}^^xsd:string ; <http://valuenet/ontop/sizes#size_description> {size_description}^^xsd:string . 
+source		SELECT * FROM "dog_kennels"."sizes"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID8
+target		<http://valuenet/ontop/dogs/dog_id={dog_id}> a <http://valuenet/ontop/dogs> ; <http://valuenet/ontop/dogs#dog_id> {dog_id}^^xsd:integer ; <http://valuenet/ontop/dogs#owner_id> {owner_id}^^xsd:integer ; <http://valuenet/ontop/dogs#abandoned_yn> {abandoned_yn}^^xsd:integer ; <http://valuenet/ontop/dogs#breed_code> {breed_code}^^xsd:string ; <http://valuenet/ontop/dogs#size_code> {size_code}^^xsd:string ; <http://valuenet/ontop/dogs#name> {name}^^xsd:string ; <http://valuenet/ontop/dogs#age> {age}^^xsd:integer ; <http://valuenet/ontop/dogs#date_of_birth> {date_of_birth}^^xsd:dateTime ; <http://valuenet/ontop/dogs#gender> {gender}^^xsd:string ; <http://valuenet/ontop/dogs#weight> {weight}^^xsd:string ; <http://valuenet/ontop/dogs#date_arrived> {date_arrived}^^xsd:dateTime ; <http://valuenet/ontop/dogs#date_adopted> {date_adopted}^^xsd:dateTime ; <http://valuenet/ontop/dogs#date_departed> {date_departed}^^xsd:dateTime . 
+source		SELECT * FROM "dog_kennels"."dogs"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID9
+target		<http://valuenet/ontop/dogs/dog_id={dogs_dog_id}> <http://valuenet/ontop/dogs#ref-breed_code> <http://valuenet/ontop/breeds/breed_code={breeds_breed_code}> . 
+source		SELECT "dog_kennels"."dogs"."dog_id" AS dogs_dog_id, "dog_kennels"."breeds"."breed_code" AS breeds_breed_code FROM "dog_kennels"."dogs", "dog_kennels"."breeds" WHERE "dog_kennels"."dogs"."breed_code" = "dog_kennels"."breeds"."breed_code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID10
+target		<http://valuenet/ontop/dogs/dog_id={dogs_dog_id}> <http://valuenet/ontop/dogs#ref-owner_id> <http://valuenet/ontop/owners/owner_id={owners_owner_id}> . 
+source		SELECT "dog_kennels"."dogs"."dog_id" AS dogs_dog_id, "dog_kennels"."owners"."owner_id" AS owners_owner_id FROM "dog_kennels"."dogs", "dog_kennels"."owners" WHERE "dog_kennels"."dogs"."owner_id" = "dog_kennels"."owners"."owner_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID11
+target		<http://valuenet/ontop/dogs/dog_id={dogs_dog_id}> <http://valuenet/ontop/dogs#ref-owner_id> <http://valuenet/ontop/owners/owner_id={owners_owner_id}> . 
+source		SELECT "dog_kennels"."dogs"."dog_id" AS dogs_dog_id, "dog_kennels"."owners"."owner_id" AS owners_owner_id FROM "dog_kennels"."dogs", "dog_kennels"."owners" WHERE "dog_kennels"."dogs"."owner_id" = "dog_kennels"."owners"."owner_id"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID12
+target		<http://valuenet/ontop/dogs/dog_id={dogs_dog_id}> <http://valuenet/ontop/dogs#ref-size_code> <http://valuenet/ontop/sizes/size_code={sizes_size_code}> . 
+source		SELECT "dog_kennels"."dogs"."dog_id" AS dogs_dog_id, "dog_kennels"."sizes"."size_code" AS sizes_size_code FROM "dog_kennels"."dogs", "dog_kennels"."sizes" WHERE "dog_kennels"."dogs"."size_code" = "dog_kennels"."sizes"."size_code"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID13
+target		<http://valuenet/ontop/charges/charge_id={charge_id}> a <http://valuenet/ontop/charges> ; <http://valuenet/ontop/charges#charge_id> {charge_id}^^xsd:integer ; <http://valuenet/ontop/charges#charge_type> {charge_type}^^xsd:string ; <http://valuenet/ontop/charges#charge_amount> {charge_amount}^^xsd:decimal . 
+source		SELECT * FROM "dog_kennels"."charges"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID14
+target		<http://valuenet/ontop/professionals/professional_id={professional_id}> a <http://valuenet/ontop/professionals> ; <http://valuenet/ontop/professionals#professional_id> {professional_id}^^xsd:integer ; <http://valuenet/ontop/professionals#role_code> {role_code}^^xsd:string ; <http://valuenet/ontop/professionals#first_name> {first_name}^^xsd:string ; <http://valuenet/ontop/professionals#street> {street}^^xsd:string ; <http://valuenet/ontop/professionals#city> {city}^^xsd:string ; <http://valuenet/ontop/professionals#state> {state}^^xsd:string ; <http://valuenet/ontop/professionals#zip_code> {zip_code}^^xsd:string ; <http://valuenet/ontop/professionals#last_name> {last_name}^^xsd:string ; <http://valuenet/ontop/professionals#email_address> {email_address}^^xsd:string ; <http://valuenet/ontop/professionals#home_phone> {home_phone}^^xsd:string ; <http://valuenet/ontop/professionals#cell_number> {cell_number}^^xsd:string . 
+source		SELECT * FROM "dog_kennels"."professionals"
+
+mappingId	BOOTSTRAPPED-MAPPING-ID15
+target		<http://valuenet/ontop/breeds/breed_code={breed_code}> a <http://valuenet/ontop/breeds> ; <http://valuenet/ontop/breeds#breed_code> {breed_code}^^xsd:string ; <http://valuenet/ontop/breeds#breed_name> {breed_name}^^xsd:string . 
+source		SELECT * FROM "dog_kennels"."breeds"
+]]
+

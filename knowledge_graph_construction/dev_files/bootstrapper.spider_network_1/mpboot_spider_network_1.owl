@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/friend#ref-friend_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/friend#ref-friend_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/friend"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/highschooler"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/friend#ref-student_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/friend#ref-student_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/friend"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/highschooler"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/likes#ref-liked_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/likes#ref-liked_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/likes"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/highschooler"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/likes#ref-student_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/likes#ref-student_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/likes"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/highschooler"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/friend#friend_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/friend#friend_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/friend"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/friend#student_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/friend#student_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/friend"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/highschooler#grade -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/highschooler#grade">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/highschooler"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/highschooler#id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/highschooler#id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/highschooler"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/highschooler#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/highschooler#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/highschooler"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/likes#liked_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/likes#liked_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/likes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/likes#student_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/likes#student_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/likes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/friend -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/friend"/>
+    
+
+
+    <!-- http://valuenet/ontop/highschooler -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/highschooler"/>
+    
+
+
+    <!-- http://valuenet/ontop/likes -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/likes"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+

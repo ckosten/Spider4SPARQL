@@ -1,0 +1,4 @@
+{
+    "schema" : "cre_doc_template_mgt",
+    "nullValue" : {"string" :  "NULL", "numeric" :  0}
+}

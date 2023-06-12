@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://valuenet/ontop/"
+     xml:base="http://valuenet/ontop/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://valuenet/ontop/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/concert#ref-stadium_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/concert#ref-stadium_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/stadium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer_in_concert#ref-concert_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/singer_in_concert#ref-concert_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer_in_concert"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/concert"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer_in_concert#ref-singer_id -->
+
+    <owl:ObjectProperty rdf:about="http://valuenet/ontop/singer_in_concert#ref-singer_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer_in_concert"/>
+        <rdfs:range rdf:resource="http://valuenet/ontop/singer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/concert#concert_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/concert#concert_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/concert#concert_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/concert#concert_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/concert#stadium_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/concert#stadium_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/concert#theme -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/concert#theme">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/concert#year -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/concert#year">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#age -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#age">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#country -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#country">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#is_male -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#is_male">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#singer_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#singer_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#song_name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#song_name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer#song_release_year -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer#song_release_year">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer_in_concert#concert_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer_in_concert#concert_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer_in_concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/singer_in_concert#singer_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/singer_in_concert#singer_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/singer_in_concert"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#average -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#average">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#capacity -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#capacity">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#highest -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#highest">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#location -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#location">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#lowest -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#lowest">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#name -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#name">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://valuenet/ontop/stadium#stadium_id -->
+
+    <owl:DatatypeProperty rdf:about="http://valuenet/ontop/stadium#stadium_id">
+        <rdfs:domain rdf:resource="http://valuenet/ontop/stadium"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://valuenet/ontop/concert -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/concert"/>
+    
+
+
+    <!-- http://valuenet/ontop/singer -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/singer"/>
+    
+
+
+    <!-- http://valuenet/ontop/singer_in_concert -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/singer_in_concert"/>
+    
+
+
+    <!-- http://valuenet/ontop/stadium -->
+
+    <owl:Class rdf:about="http://valuenet/ontop/stadium"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9) https://github.com/owlcs/owlapi -->
+
