@@ -3,7 +3,6 @@
 8,659 Train queries are available in a csv file located in [natural language sparql pairs train file](nl_sparql_pairs/train/train_nl_sparql.csv)
 
 # Materialized Knowledge Graphs
-
 This repository contains materialized Knowledge graphs for the dev and train set. 
 
 Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs for dev set](https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=sharing)
