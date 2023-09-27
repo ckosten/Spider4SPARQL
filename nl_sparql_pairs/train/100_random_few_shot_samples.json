@@ -1,0 +1,502 @@
+[
+    {
+        "kg_name": "entrepreneur",
+        "question": "What is the average money requested by all entrepreneurs?",
+        "query": "SELECT (avg( ?T1_money_requested) as ?aggregation_T1_money_requested_147 ) WHERE { ?T1 a :entrepreneur . ?T1 :entrepreneur\\#money_requested ?T1_money_requested . }"
+    },
+    {
+        "kg_name": "chinook_1",
+        "question": "Find the names of artists that do not have any albums.",
+        "query": "SELECT distinct ?col1 WHERE { { SELECT (?T1_name as ?col1) WHERE { ?T1 a :artist . ?T1 :artist\\#name ?T1_name . }}  MINUS {SELECT (?T3_name as ?col1) WHERE { ?T2 a :album . ?T3 a :artist . ?T3 :artist\\#name ?T3_name . ?T2 :album\\#ref-artistid ?T3 . } } }"
+    },
+    {
+        "kg_name": "geo",
+        "question": "how many major cities are there in texas",
+        "query": "SELECT (count( ?T1_city_name) as ?aggregation_T1_city_name_117 ) WHERE { ?T1 a :city . ?T1 :city\\#city_name ?T1_city_name . ?T1 :city\\#population ?T1_population . ?T1 :city\\#state_name ?T1_state_name . FILTER(?T1_population > 150000 && ?T1_state_name = 'texas') .        }"
+    },
+    {
+        "kg_name": "restaurants",
+        "question": "show me a good arabic restaurant in mountain view ?",
+        "query": "SELECT ?T1_house_number ?T2_name WHERE { ?T1 a :location . ?T2 a :restaurant . ?T1 :location\\#ref-restaurant_id ?T2 .  ?T1 :location\\#house_number ?T1_house_number . ?T2 :restaurant\\#name ?T2_name . ?T1 :location\\#city_name ?T1_city_name . ?T2 :restaurant\\#food_type ?T2_food_type . ?T2 :restaurant\\#rating ?T2_rating . FILTER(?T1_city_name = 'mountain view' && ?T2_food_type = 'arabic' && ?T2_rating > 2.5) . }"
+    },
+    {
+        "kg_name": "college_2",
+        "question": "What is the title and credits of the course that is taught in the largest classroom (with the highest capacity)?",
+        "query": "SELECT DISTINCT ?T3_title ?T3_credits WHERE { ?T1 a :classroom . ?T2 a :section . ?T3 a :course . ?T1 :classroom\\#building ?building . ?T2 :section\\#building ?building. ?T1 :classroom\\#room_number ?room_number . ?T2 :section\\#room_number ?room_number . ?T1 :classroom\\#capacity ?T1_capacity . ?T3 :course\\#title ?T3_title . ?T3 :course\\#credits ?T3_credits . ?T2 :section\\#ref-course_id ?T3 . } order by desc(?T1_capacity) LIMIT 1"
+    },
+    {
+        "kg_name": "storm_record",
+        "question": "What are the names of regions that were affected by the storm in which the most people died?",
+        "query": "SELECT ?T1_region_name WHERE { ?T1 a :region . ?T13 a :affected_region . ?T13 :affected_region\\#ref-region_id ?T1 .  ?T1 :region\\#region_name ?T1_region_name . ?T2 :storm\\#number_deaths ?T2_number_deaths . ?T2 a :storm . ?T13 :affected_region\\#ref-storm_id ?T2 .  ?T1 :region\\#region_name ?T1_region_name . ?T2 :storm\\#number_deaths ?T2_number_deaths .        }   ORDER BY DESC (?T2_number_deaths) LIMIT 1"
+    },
+    {
+        "kg_name": "cre_docs_and_epenses",
+        "question": "What are the ids and details for each project?",
+        "query": "SELECT ?T1_project_id ?T1_project_details WHERE { ?T1 a :projects . ?T1 :projects\\#project_id ?T1_project_id . ?T1 :projects\\#project_details ?T1_project_details . }"
+    },
+    {
+        "kg_name": "customers_and_addresses",
+        "question": "What is the payment method of the customer that has purchased the least quantity of items?",
+        "query": "SELECT ?T1_payment_method WHERE { ?T1 a :customers . ?T13 a :customer_orders . ?T13 :customer_orders\\#ref-customer_id ?T1 .  ?T1 :customers\\#payment_method ?T1_payment_method . ?T2 :order_items\\#order_quantity ?T2_order_quantity . ?T2 a :order_items . ?T2 :order_items\\#ref-order_id ?T13 .  ?T1 :customers\\#payment_method ?T1_payment_method . ?T2 :order_items\\#order_quantity ?T2_order_quantity . } GROUP BY ?T1_payment_method  ORDER BY ASC ((sum( ?T2_order_quantity) as ?aggregation_T2_order_quantity_9 )) LIMIT 1"
+    },
+    {
+        "kg_name": "chinook_1",
+        "question": "List the names of all music genres.",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :genre . ?T1 :genre\\#name ?T1_name .        }"
+    },
+    {
+        "kg_name": "customers_and_addresses",
+        "question": "What is the most frequently ordered product? Tell me the detail of the product",
+        "query": "SELECT ?T2_product_details (count( *) as ?aggregation_all) WHERE { ?T1 a :order_items . ?T2 a :products . ?T1 :order_items\\#ref-product_id ?T2 .  ?T2 :products\\#product_details ?T2_product_details .} GROUP BY ?T2_product_details  ORDER BY DESC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "aircraft",
+        "question": "What is the average total number of passengers for all airports that the aircraft 'Robinson R-22' visits?",
+        "query": "SELECT (avg( ?T1_total_passengers) as ?aggregation_T1_total_passengers_33 ) WHERE { ?T1 a :airport . ?T13 a :airport_aircraft . ?T13 :airport_aircraft\\#ref-airport_id ?T1 .  ?T1 :airport\\#total_passengers ?T1_total_passengers . ?T2 :aircraft\\#aircraft ?T2_aircraft . ?T2 a :aircraft . ?T13 :airport_aircraft\\#ref-aircraft_id ?T2 .  ?T1 :airport\\#total_passengers ?T1_total_passengers . ?T2 :aircraft\\#aircraft ?T2_aircraft . FILTER(?T2_aircraft = 'Robinson R-22') .        }"
+    },
+    {
+        "kg_name": "college_1",
+        "question": "Find names of all students who took some course and got A or C.",
+        "query": "SELECT ?T1_stu_fname ?T1_stu_lname WHERE { ?T1 a :student . ?T2 a :enroll . ?T2 :enroll\\#ref-stu_num ?T1 .  ?T1 :student\\#stu_fname ?T1_stu_fname . ?T1 :student\\#stu_lname ?T1_stu_lname . ?T2 :enroll\\#enroll_grade ?T2_enroll_grade . ?T2 :enroll\\#enroll_grade ?T2_enroll_grade . FILTER(?T2_enroll_grade = 'C' || ?T2_enroll_grade = 'A') .        }"
+    },
+    {
+        "kg_name": "allergy_1",
+        "question": "Which city does the student whose last name is 'Kim' live in?",
+        "query": "SELECT ?T1_city_code WHERE { ?T1 a :student . ?T1 :student\\#city_code ?T1_city_code . ?T1 :student\\#lname ?T1_lname . FILTER(?T1_lname = 'Kim') .        }"
+    },
+    {
+        "kg_name": "yelp",
+        "question": "find all the restaurant in Pennsylvania",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :business . ?T2 a :category . ?T2 :category\\#ref-business_id ?T1 .  ?T1 :business\\#name ?T1_name . ?T1 :business\\#state ?T1_state . ?T2 :category\\#category_name ?T2_category_name . FILTER(?T1_state = 'Pennsylvania' && ?T2_category_name = 'restaurant') .        }"
+    },
+    {
+        "kg_name": "activity_1",
+        "question": "Show the first and last name of all the faculty members who participated in some activity, together with the number of activities they participated in.",
+        "query": "SELECT ?T1_fname ?T1_lname (count( *) as ?aggregation_all) ?T1_facid WHERE { ?T1 a :faculty . ?T2 a :faculty_participates_in . ?T2 :faculty_participates_in\\#ref-facid ?T1 .  ?T1 :faculty\\#fname ?T1_fname . ?T1 :faculty\\#lname ?T1_lname . ?T1 :faculty\\#facid ?T1_facid .        } GROUP BY ?T1_fname ?T1_lname ?T1_facid"
+    },
+    {
+        "kg_name": "university_basketball",
+        "question": "Show the enrollment and primary_conference of the oldest college.",
+        "query": "SELECT ?T1_enrollment ?T1_primary_conference WHERE { ?T1 a :university . ?T1 :university\\#enrollment ?T1_enrollment . ?T1 :university\\#primary_conference ?T1_primary_conference . ?T1 :university\\#founded ?T1_founded .        }   ORDER BY ASC (?T1_founded) LIMIT 1"
+    },
+    {
+        "kg_name": "geo",
+        "question": "what is capital of texas",
+        "query": "SELECT ?T1_capital WHERE { ?T1 a :state . ?T1 :state\\#capital ?T1_capital . ?T1 :state\\#state_name ?T1_state_name . FILTER(?T1_state_name = 'texas') .        }"
+    },
+    {
+        "kg_name": "protein_institute",
+        "question": "How many proteins are associated with an institution in a building with at least 20 floors?",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :institution . ?T2 a :protein . ?T2 :protein\\#ref-institution_id ?T1 . ?T3 a :building . ?T3 :building\\#building_id ?building_id . ?T1 :institution\\#building_id ?building_id . ?T3 :building\\#floors ?T3_floors .  FILTER(?T3_floors >= 20) .}"
+    },
+    {
+        "kg_name": "sakila_1",
+        "question": "How many items in inventory does store 1 have?",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :inventory . ?T1 :inventory\\#store_id ?T1_store_id . FILTER(?T1_store_id = 1) .        }"
+    },
+    {
+        "kg_name": "storm_record",
+        "question": "What is the total number of deaths and damage for all storms with a max speed greater than the average?",
+        "query": "SELECT (sum( ?T1_number_deaths) as ?aggregation_T1_number_deaths_168 ) (sum( ?T1_damage_millions_usd) as ?aggregation_T1_damage_millions_usd_96 ) WHERE { ?T1 a :storm . ?T1 :storm\\#number_deaths ?T1_number_deaths . ?T1 :storm\\#damage_millions_usd ?T1_damage_millions_usd . ?T1 :storm\\#max_speed ?T1_max_speed . FILTER(?T1_max_speed > (?aggregation_T22_max_speed_72)) .       {SELECT (avg( ?T22_max_speed) as ?aggregation_T22_max_speed_72 ) WHERE { ?T22 a :storm . ?T22 :storm\\#max_speed ?T22_max_speed .        }    } }"
+    },
+    {
+        "kg_name": "scholar",
+        "question": "venue for Trophic Cascade",
+        "query": "SELECT DISTINCT ?T1_venueid WHERE { ?T1 a :paper . ?T13 a :paperkeyphrase . ?T13 :paperkeyphrase\\#ref-paperid ?T1 .  ?T1 :paper\\#venueid ?T1_venueid . ?T2 :keyphrase\\#keyphrasename ?T2_keyphrasename . ?T2 a :keyphrase . ?T13 :paperkeyphrase\\#ref-keyphraseid ?T2 .  ?T1 :paper\\#venueid ?T1_venueid . ?T2 :keyphrase\\#keyphrasename ?T2_keyphrasename . FILTER(?T2_keyphrasename = 'Trophic Cascade') .        }"
+    },
+    {
+        "kg_name": "college_1",
+        "question": "How many departments does the college has?",
+        "query": "SELECT DISTINCT (count(DISTINCT ?T1_dept_name) as ?aggregation_T1_dept_name_165 ) WHERE { ?T1 a :department . ?T1 :department\\#dept_name ?T1_dept_name .        }"
+    },
+    {
+        "kg_name": "performance_attendance",
+        "question": "Show the locations that have both performances with more than 2000 attendees and performances with less than 1000 attendees.",
+        "query": "SELECT DISTINCT ?T1_location WHERE { ?T1 a :performance . ?T1 :performance\\#location ?T1_location . ?T1 :performance\\#attendance ?T1_attendance . FILTER(?T1_attendance > 2000) . FILTER (?T1_location in (?T2_location)) .   ?T2 a :performance . ?T2 :performance\\#location ?T2_location . ?T2 :performance\\#attendance ?T2_attendance .  FILTER(?T2_attendance < 1000) .             }"
+    },
+    {
+        "kg_name": "university_basketball",
+        "question": "List all schools and their nicknames in the order of founded year.",
+        "query": "SELECT ?T1_school ?T1_nickname WHERE { ?T1 a :university . ?T1 :university\\#school ?T1_school . ?T1 :university\\#nickname ?T1_nickname . ?T1 :university\\#founded ?T1_founded .        }  ORDER BY ASC (?T1_founded)"
+    },
+    {
+        "kg_name": "election",
+        "question": "Which party has two or more records?",
+        "query": "SELECT ?T1_party WHERE { ?T1 a :party . ?T1 :party\\#party ?T1_party .        } GROUP BY ?T1_party   HAVING(count( *)  >= 2)"
+    },
+    {
+        "kg_name": "cre_docs_and_epenses",
+        "question": "Show all account ids and account details.",
+        "query": "SELECT ?T1_account_id ?T1_account_details WHERE { ?T1 a :accounts . ?T1 :accounts\\#account_id ?T1_account_id . ?T1 :accounts\\#account_details ?T1_account_details .        }"
+    },
+    {
+        "kg_name": "yelp",
+        "question": "How many people reviewed ' Bistro Di Napoli ' in 2015 ?",
+        "query": "SELECT DISTINCT (count(DISTINCT ?T1_name) as ?aggregation_T1_name_155 ) WHERE { ?T2 a :business . ?T3 a :review . ?T3 :review\\#ref-business_id ?T2 .  ?T1 :users\\#name ?T1_name . ?T2 :business\\#name ?T2_name . ?T3 :review\\#year ?T3_year . FILTER(?T2_name = 'Bistro Di Napoli' && ?T3_year = 2015) .        }"
+    },
+    {
+        "kg_name": "cre_drama_workshop_groups",
+        "question": "What are the states or counties of the address of the stores with marketing region code 'CA'?",
+        "query": "SELECT ?T1_state_county WHERE { ?T1 a :addresses . ?T2 a :stores . ?T2 :stores\\#ref-address_id ?T1 .  ?T1 :addresses\\#state_county ?T1_state_county . ?T2 :stores\\#marketing_region_code ?T2_marketing_region_code . FILTER(?T2_marketing_region_code = 'CA') .        }"
+    },
+    {
+        "kg_name": "academic",
+        "question": "return me the authors who have more than 10 papers in PVLDB .",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :author . ?T14 a :writes . ?T14 :writes\\#ref-aid ?T1 .  ?T1 :author\\#name ?T1_name . ?T2 :journal\\#name ?T2_name . ?T3 :publication\\#title ?T3_title . ?T3 a :publication . ?T14 :writes\\#ref-pid ?T3 .  ?T1 :author\\#name ?T1_name . ?T2 :journal\\#name ?T2_name . ?T3 :publication\\#title ?T3_title . ?T2 a :journal . ?T3 :publication\\#ref-jid ?T2 .  ?T1 :author\\#name ?T1_name . ?T2 :journal\\#name ?T2_name . ?T3 :publication\\#title ?T3_title . FILTER(?T2_name = 'PVLDB') .        } GROUP BY ?T1_name   HAVING(count( ?T3_title) as ?aggregation_T3_title_139 ) > '10')"
+    },
+    {
+        "kg_name": "dorm_1",
+        "question": "What are the names of the dorm that does not have a TV Lounge?",
+        "query": "SELECT distinct?col1 WHERE { { SELECT (?T1_dorm_name as ?col1) WHERE { ?T1 a :dorm . ?T1 :dorm\\#dorm_name ?T1_dorm_name .   }}  MINUS {SELECT (?T2_dorm_name as ?col1) WHERE { ?T2 a :dorm . ?T14 a :has_amenity . ?T14 :has_amenity\\#ref-dormid ?T2 .  ?T2 :dorm\\#dorm_name ?T2_dorm_name . ?T3 :dorm_amenity\\#amenity_name ?T3_amenity_name . ?T3 a :dorm_amenity . ?T14 :has_amenity\\#ref-amenid ?T3 .  ?T2 :dorm\\#dorm_name ?T2_dorm_name . ?T3 :dorm_amenity\\#amenity_name ?T3_amenity_name . FILTER(?T3_amenity_name = 'TV Lounge') .        }     } }"
+    },
+    {
+        "kg_name": "music_4",
+        "question": "Return the average age across all artists.",
+        "query": "SELECT (avg( ?T1_age) as ?aggregation_T1_age_100 ) WHERE { ?T1 a :artist . ?T1 :artist\\#age ?T1_age .        }"
+    },
+    {
+        "kg_name": "music_2",
+        "question": "Find all the stage positions of the musicians with first name 'Solveig'",
+        "query": "SELECT DISTINCT ?T1_stageposition WHERE { ?T1 a :performance . ?T2 a :band . ?T1 :performance\\#ref-bandmate ?T2 .  ?T1 :performance\\#stageposition ?T1_stageposition . ?T2 :band\\#firstname ?T2_firstname . FILTER(?T2_firstname = 'Solveig') .        }"
+    },
+    {
+        "kg_name": "tracking_share_transactions",
+        "question": "Show the maximum share count of transactions where the amount is smaller than 10000",
+        "query": "SELECT (max( ?T1_share_count) as ?aggregation_T1_share_count_53 ) WHERE { ?T1 a :transactions . ?T1 :transactions\\#share_count ?T1_share_count . ?T1 :transactions\\#amount_of_transaction ?T1_amount_of_transaction . FILTER(?T1_amount_of_transaction < 10000) .        }"
+    },
+    {
+        "kg_name": "bike_1",
+        "question": "For each station, find its latitude and the minimum duration of trips that ended at the station.",
+        "query": "SELECT ?T1_name ?T1_lat (min( ?T2_duration) as ?aggregation_T2_duration_167 ) WHERE { ?T1 a :station . ?T2 a :trip . ?T1 :station\\#id ?id . ?T2 :trip\\#end_station_id ?id . ?T2 :trip\\#end_station_id ?T2_end_station_id . ?T1 :station\\#name ?T1_name . ?T1 :station\\#lat ?T1_lat . ?T2 :trip\\#duration ?T2_duration .        } GROUP BY ?T2_end_station_id ?T1_name ?T1_lat"
+    },
+    {
+        "kg_name": "scholar",
+        "question": "datasets used for semantic parsing",
+        "query": "SELECT DISTINCT ?T1_datasetid WHERE { ?T1 :dataset\\#ref-keyphrase_id ?T2 . FILTER(?T2_keyphrasename = 'semantic parsing') .        }"
+    },
+    {
+        "kg_name": "film_rank",
+        "question": "Show the studios that have not produced films with director 'Walter Hill'.",
+        "query": "SELECT distinct?col1 WHERE { { SELECT (?T1_studio as ?col1) WHERE { ?T1 a :film . ?T1 :film\\#studio ?T1_studio .   }}  MINUS {SELECT (?T2_studio as ?col1) WHERE { ?T2 a :film . ?T2 :film\\#studio ?T2_studio . ?T2 :film\\#director ?T2_director . FILTER(?T2_director = 'Walter Hill') .        }     } }"
+    },
+    {
+        "kg_name": "cre_theme_park",
+        "question": "Find all the locations whose names contain the word 'film'.",
+        "query": "SELECT ?T1_location_name WHERE { ?T1 a :locations . ?T1 :locations\\#location_name ?T1_location_name . ?T1 :locations\\#location_name ?T1_location_name . FILTER(contains (?T1_location_name, 'film')) .        }"
+    },
+    {
+        "kg_name": "college_1",
+        "question": "What is the total credit does each department offer?",
+        "query": "SELECT (sum( ?T1_crs_credit) as ?aggregation_T1_crs_credit_114 ) ?T1_dept_code WHERE { ?T1 a :course . ?T1 :course\\#crs_credit ?T1_crs_credit . ?T1 :course\\#dept_code ?T1_dept_code .        } GROUP BY ?T1_dept_code"
+    },
+    {
+        "kg_name": "pilot_record",
+        "question": "Show the names of pilots from team 'Bradley' or 'Fordham'.",
+        "query": "SELECT ?T1_pilot_name WHERE { ?T1 a :pilot . ?T1 :pilot\\#pilot_name ?T1_pilot_name . ?T1 :pilot\\#team ?T1_team . ?T1 :pilot\\#team ?T1_team . FILTER(?T1_team = 'Bradley' || ?T1_team = 'Fordham') .        }"
+    },
+    {
+        "kg_name": "flight_4",
+        "question": "What is the name of the airline with the most routes?",
+        "query": "SELECT ?T1_name (count( *) as ?aggregation_all) WHERE { ?T1 a :airlines . ?T2 a :routes . ?T2 :routes\\#ref-alid ?T1 .  ?T1 :airlines\\#name ?T1_name .        } GROUP BY ?T1_name  ORDER BY DESC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "game_1",
+        "question": "What is the sport with the most scholarship students?",
+        "query": "SELECT ?T1_sportname (count( *) as ?aggregation_all) WHERE { ?T1 a :sportsinfo . ?T1 :sportsinfo\\#sportname ?T1_sportname . ?T1 :sportsinfo\\#onscholarship ?T1_onscholarship . FILTER(?T1_onscholarship = 'Y') .        } GROUP BY ?T1_sportname  ORDER BY DESC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "activity_1",
+        "question": "For each faculty rank, show the number of faculty members who have it.",
+        "query": "SELECT ?T1_rank (count( *) as ?aggregation_all) WHERE { ?T1 a :faculty . ?T1 :faculty\\#rank ?T1_rank .        } GROUP BY ?T1_rank"
+    },
+    {
+        "kg_name": "cinema",
+        "question": "In which locations are there more than one movie theater with capacity above 300?",
+        "query": "SELECT ?T1_location WHERE { ?T1 a :cinema . ?T1 :cinema\\#location ?T1_location . ?T1 :cinema\\#capacity ?T1_capacity . FILTER(?T1_capacity > 300) .        } GROUP BY ?T1_location   HAVING(count( *)  > 1)"
+    },
+    {
+        "kg_name": "epinions_1",
+        "question": "Find the number of items without any review.",
+        "query": "SELECT (COUNT(?T1_i_id) as ?aggregation_all) WHERE { ?T1 a :item . ?T1 :item//i_id ?T1_i_id . FILTER NOT EXISTS { ?T22 a :review . ?T22 :review//i_id ?T22_i_id . FILTER (?T1_i_id = ?T22_i_id) } }"
+    },
+    {
+        "kg_name": "party_host",
+        "question": "List the names of hosts who did not serve as a host of any party in our record.",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :host . ?T1 :host\\#name ?T1_name . ?T1 :host\\#host_id ?T1_host_id .     FILTER NOT EXISTS { ?T22 a :party_host . ?T22 :party_host\\#host_id ?T22_host_id . FILTER(?T1_host_id = ?T22_host_id) . } }  "
+    },
+    {
+        "kg_name": "film_rank",
+        "question": "What are the names of studios that have produced films with both Nicholas Meyer and Walter Hill?",
+        "query": "SELECT DISTINCT ?T1_studio WHERE { ?T1 a :film . ?T1 :film\\#studio ?T1_studio . ?T1 :film\\#director ?T1_director . FILTER(?T1_director = 'Nicholas Meyer') . FILTER (?T1_studio in (?T2_studio)) .   ?T2 a :film . ?T2 :film\\#studio ?T2_studio . ?T2 :film\\#director ?T2_director .  FILTER(?T2_director = 'Walter Hill') .             }"
+    },
+    {
+        "kg_name": "aircraft",
+        "question": "What are the descriptions for the aircrafts?",
+        "query": "SELECT ?T1_description WHERE { ?T1 a :aircraft . ?T1 :aircraft\\#description ?T1_description .        }"
+    },
+    {
+        "kg_name": "activity_1",
+        "question": "What is the total number of faculty members?",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :faculty .        }"
+    },
+    {
+        "kg_name": "decoration_competition",
+        "question": "List the names of members in ascending alphabetical order.",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :member . ?T1 :member\\#name ?T1_name . ?T1 :member\\#name ?T1_name .        }  ORDER BY ASC (?T1_name)"
+    },
+    {
+        "kg_name": "geo",
+        "question": "what is the area of the states",
+        "query": "SELECT ?T1_area WHERE { ?T1 a :state . ?T1 :state\\#area ?T1_area .        }"
+    },
+    {
+        "kg_name": "movie_1",
+        "question": "What are the ids of all moviest hat have not been reviewed by Britanny Harris?",
+        "query": "SELECT distinct ?T1_mid WHERE { ?T1 a :rating . ?T1 :rating\\#mid ?T1_mid .    FILTER NOT EXISTS { ?T2 a :rating . ?T3 a :reviewer .  ?T2 :rating\\#ref-rid ?T3 .  ?T2 :rating\\#mid ?T1_mid .  ?T3 :reviewer\\#name ?T3_name .    FILTER(?T3_name = 'Brittany Harris') .   }   } "
+    },
+    {
+        "kg_name": "allergy_1", 
+        "question": "What are the first name and gender of the students who have allergy to milk but can put up with cats?",
+        "query": "SELECT ?T1_fname ?T1_sex WHERE { ?T1 a :student ; :student\\#fname ?T1_fname ; :student\\#sex ?T1_sex ; :student\\#stuid ?T1_stuid . FILTER EXISTS { ?T22 a :has_allergy ; :has_allergy\\#stuid ?T1_stuid ; :has_allergy\\#allergy 'Milk' . } FILTER NOT EXISTS { ?T22 a :has_allergy ; :has_allergy\\#stuid ?T1_stuid ; :has_allergy\\#allergy 'Cat' . }}"
+    },
+    {
+        "kg_name": "flight_4",
+        "question": "Find the number of airports whose name contain the word 'International'.",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :airports . ?T1 :airports\\#name ?T1_name . FILTER(contains (?T1_name, 'International')) .        }"
+    },
+    {
+        "kg_name": "geo",
+        "question": "what is the biggest state in the usa",
+        "query": "SELECT ?T1_state_name WHERE { ?T1 a :state . ?T1 :state\\#state_name ?T1_state_name . ?T1 :state\\#area ?T1_area . FILTER(?T1_area = (?aggregation_T22_area_84)) .       {SELECT (max( ?T22_area) as ?aggregation_T22_area_84 ) WHERE { ?T22 a :state . ?T22 :state\\#area ?T22_area .        }    } }"
+    },
+    {
+        "kg_name": "climbing",
+        "question": "Show the distinct names of mountains climbed by climbers from country 'West Germany'.",
+        "query": "SELECT DISTINCT ?T1_name WHERE { ?T1 a :mountain . ?T2 a :climber . ?T2 :climber\\#ref-mountain_id ?T1 .  ?T1 :mountain\\#name ?T1_name . ?T2 :climber\\#country ?T2_country . FILTER(?T2_country = 'West Germany') .        }"
+    },
+    {
+        "kg_name": "scholar",
+        "question": "What conferences did li dong submit to in 2016 ?",
+        "query": "SELECT DISTINCT ?T1_venueid WHERE { ?T1 a :paper . ?T13 a :writes . ?T13 :writes\\#ref-paperid ?T1 .  ?T1 :paper\\#venueid ?T1_venueid . ?T2 :author\\#authorname ?T2_authorname . ?T1 :paper\\#year ?T1_year . ?T2 a :author . ?T13 :writes\\#ref-aid ?T2 .  ?T1 :paper\\#venueid ?T1_venueid . ?T2 :author\\#authorname ?T2_authorname . ?T1 :paper\\#year ?T1_year . FILTER(?T2_authorname = 'li dong' && ?T1_year = 2016) .        }"
+    },
+    {
+        "kg_name": "student_1",
+        "question": "Find the first and last name of all the teachers that teach EVELINA BROMLEY.",
+        "query": "SELECT ?T1_firstname ?T1_lastname WHERE { ?T1 :teachers\\#ref-list_id ?T2 . FILTER(?T2_firstname = 'EVELINA' && ?T2_lastname = 'BROMLEY') .        }"
+    },
+    {
+        "kg_name": "game_1",
+        "question": "What is the name of the game that has been played the most?",
+        "query": "SELECT ?T1_gname WHERE { ?T1 a :video_games . ?T2 a :plays_games . ?T2 :plays_games\\#ref-gameid ?T1 .  ?T1 :video_games\\#gname ?T1_gname . ?T2 :plays_games\\#hours_played ?T2_hours_played . } GROUP BY ?T1_gname  ORDER BY DESC (sum( ?T2_hours_played) ) LIMIT 1"
+    },
+    {
+        "kg_name": "baseball_1",
+        "question": "List players' first name and last name who received salary from team Washington Nationals in both 2005 and 2007.",
+        "query": "SELECT DISTINCT ?T2_name_first ?T2_name_last WHERE { ?T1 a :salary . ?T1 :salary\\#year ?T1_year .?T2 a :player . ?T1 :salary\\#player_id ?id . ?T2 :player\\#player_id ?id . ?T2 :player\\#name_first ?T2_name_first .?T2 :player\\#name_last ?T2_name_last . ?T3 a :team . ?T3 :team\\#team_id_br ?id_1 . ?T1 :salary\\#team_id ?id_1 . ?T3 :team\\#name ?T3_name FILTER(?T1_year = 2005 && ?T3_name = 'Washington Nationals') ?T4 a :salary . ?T4 :salary\\#year ?T4_year .?T5 a :player . ?T4 :salary\\#player_id ?id_2 . ?T5 :player\\#player_id ?id_2 . ?T5 :player\\#name_first ?T5_name_first .?T5 :player\\#name_last ?T2_name_last . ?T6 a :team . ?T6 :team\\#team_id_br ?id_3 . ?T4 :salary\\#team_id ?id_3 . ?T6 :team\\#name ?T6_name FILTER(?T4_year = 2007 && ?T6_name = 'Washington Nationals')  }"
+    },
+    {
+        "kg_name": "hr_1",
+        "question": "What is all the information about employees who have never had a job in the past?",
+        "query": "SELECT * WHERE { ?T1 a :employees . ?T1 :employees\\#employee_id ?T1_employee_id . FILTER(?T1_employee_id not in (?T22_employee_id)) .       {SELECT ?T22_employee_id WHERE { ?T22 a :job_history . ?T22 :job_history\\#employee_id ?T22_employee_id .        }    } }"
+    },
+    {
+        "kg_name": "sakila_1",
+        "question": "Which districts have at least two addresses?",
+        "query": "SELECT ?T1_district WHERE { ?T1 a :address . ?T1 :address\\#district ?T1_district .        } GROUP BY ?T1_district   HAVING(count( *)  >= 2)"
+    },
+    {
+        "kg_name": "local_govt_mdm",
+        "question": "List the council tax ids and their related cmi cross references of all the parking fines.",
+        "query": "SELECT ?T1_council_tax_id ?T1_cmi_cross_ref_id WHERE { ?T1 a :parking_fines . ?T1 :parking_fines\\#council_tax_id ?T1_council_tax_id . ?T1 :parking_fines\\#cmi_cross_ref_id ?T1_cmi_cross_ref_id .        }"
+    },
+    {
+        "kg_name": "imdb",
+        "question": "When was ' Kevin Spacey ' born ?",
+        "query": "SELECT ?T1_birth_year WHERE { ?T1 a :actor . ?T1 :actor\\#birth_year ?T1_birth_year . ?T1 :actor\\#name ?T1_name . FILTER(?T1_name = 'actor_name0') .        }"
+    },
+    {
+        "kg_name": "culture_company",
+        "question": "List all company names with a book published by Alyson.",
+        "query": "SELECT ?T1_company_name WHERE { ?T1 a :culture_company . ?T2 a :book_club . ?T1 :culture_company\\#ref-book_club_id ?T2 .  ?T1 :culture_company\\#company_name ?T1_company_name . ?T2 :book_club\\#publisher ?T2_publisher . FILTER(?T2_publisher = 'Alyson') .        }"
+    },
+    {
+        "kg_name": "driving_school",
+        "question": "Which last names are both used by customers and by staff?",
+        "query": "SELECT DISTINCT ?T1_last_name WHERE { ?T1 a :customers . ?T1 :customers\\#last_name ?T1_last_name . FILTER (?T1_last_name in (?T2_last_name)) .   ?T2 a :staff . ?T2 :staff\\#last_name ?T2_last_name .              }"
+    },
+    {
+        "kg_name": "allergy_1",
+        "question": "Who advises student 1004?",
+        "query": "SELECT ?T1_advisor WHERE { ?T1 a :student . ?T1 :student\\#advisor ?T1_advisor . ?T1 :student\\#stuid ?T1_stuid . FILTER(?T1_stuid = 1004) .        }"
+    },
+    {
+        "kg_name": "inn_1",
+        "question": "Which room has the highest rate? List the room's full name, rate, check in and check out date.",
+        "query": "SELECT ?T2_roomname ?T1_rate ?T1_checkin ?T1_checkout WHERE { ?T1 a :reservations . ?T2 a :rooms .  ?T1 :reservations\\#ref-room ?T2 .  ?T2 :rooms\\#roomname ?T2_roomname . ?T1 :reservations\\#rate ?T1_rate . ?T1 :reservations\\#checkin ?T1_checkin . ?T1 :reservations\\#checkout ?T1_checkout .        }   ORDER BY DESC (?T1_rate) LIMIT 1"
+    },
+    {
+        "kg_name": "driving_school",
+        "question": "What are the phone numbers and email addresses of all customers who have an outstanding balance of more than 2000?",
+        "query": "SELECT ?T1_phone_number ?T1_email_address WHERE { ?T1 a :customers . ?T1 :customers\\#phone_number ?T1_phone_number . ?T1 :customers\\#email_address ?T1_email_address . ?T1 :customers\\#amount_outstanding ?T1_amount_outstanding . FILTER(?T1_amount_outstanding > 2000) .        }"
+    },
+    {
+        "kg_name": "geo",
+        "question": "what are the highest points of all the states",
+        "query": "SELECT ?T1_highest_point WHERE { ?T1 a :highlow . ?T1 :highlow\\#highest_point ?T1_highest_point .        }"
+    },
+    {
+        "kg_name": "game_1",
+        "question": "What are the student ids for those on scholarship in major number 600?",
+        "query": "SELECT DISTINCT ?T1_stuid WHERE { ?T1 a :student . ?T1 :student\\#stuid ?T1_stuid . ?T1 :student\\#major ?T1_major . FILTER(?T1_major = 600) . FILTER (?T1_stuid in (?T2_stuid)) .   ?T2 a :sportsinfo . ?T2 :sportsinfo\\#stuid ?T2_stuid . ?T2 :sportsinfo\\#onscholarship ?T2_onscholarship .  FILTER(?T2_onscholarship = 'Y') .             }"
+    },
+    {
+        "kg_name": "geo",
+        "question": "which state has the ohio river",
+        "query": "SELECT ?T1_traverse WHERE { ?T1 a :river . ?T1 :river\\#traverse ?T1_traverse . ?T1 :river\\#river_name ?T1_river_name . FILTER(?T1_river_name = 'ohio') .        }"
+    },
+    {
+        "kg_name": "college_1",
+        "question": "What are the first names of all Accounting professors who teach and what are the classrooms of the courses they teach?",
+        "query": "SELECT * WHERE { ?T1 a :class . ?T2 a :employee . ?T1 :class\\#prof_num ?num .  ?T2 :employee\\#emp_num ?num  . ?T2 :employee\\#emp_fname ?T2_emp_fname . ?T1 :class\\#class_room ?T1_class_room . ?T3 a :professor . ?T3 :professor\\#ref-emp_num ?T2 . ?T4 a :department .  ?T4 :department\\#dept_name ?T4_dept_name . ?T3 :professor\\#ref-dept_code ?T4 .   FILTER(?T4_dept_name = 'Accounting') . }"
+    },
+    {
+        "kg_name": "document_management",
+        "question": "What are the names of all the documents, as well as the access counts of each, ordered alphabetically?",
+        "query": "SELECT ?T1_document_name ?T1_access_count WHERE { ?T1 a :documents . ?T1 :documents\\#document_name ?T1_document_name . ?T1 :documents\\#access_count ?T1_access_count . ?T1 :documents\\#document_name ?T1_document_name .        }  ORDER BY ASC (?T1_document_name)"
+    },
+    {
+        "kg_name": "insurance_and_eclaims",
+        "question": "Find the names of customers whose name contains 'Diana'.",
+        "query": "SELECT ?T1_customer_details WHERE { ?T1 a :customers . ?T1 :customers\\#customer_details ?T1_customer_details . ?T1 :customers\\#customer_details ?T1_customer_details . FILTER(contains (?T1_customer_details, 'Diana')) .        }"
+    },
+    {
+        "kg_name": "bike_1",
+        "question": "What are the days that had the smallest temperature range, and what was that range?",
+        "query": "SELECT ?T1_date ?total WHERE { ?T1 a :weather . ?T1 :weather\\#date ?T1_date . ?T1 :weather\\#max_temperature_f ?T1_max_temperature_f . ?T1 :weather\\#min_temperature_f ?T1_min_temperature_f . ?T1 :weather\\#max_temperature_f ?T1_max_temperature_f . ?T1 :weather\\#min_temperature_f ?T1_min_temperature_f .   BIND (?T1_max_temperature_f - ?T1_min_temperature_f AS ?total)      }   ORDER BY ASC (?total) LIMIT 1"
+    },
+    {
+        "kg_name": "imdb",
+        "question": "Find the latest movie which ' Gabriele Ferzetti ' acted in",
+        "query": "SELECT ?T1_name WHERE { ?T2 :movie\\#ref-actor_id ?T1 . FILTER(?T1_name = 'Gabriele Ferzetti') .        }   ORDER BY DESC (?T2_release_year) LIMIT 1"
+    },
+    {
+        "kg_name": "race_track",
+        "question": "Give the different locations of tracks.",
+        "query": "SELECT DISTINCT ?T1_location WHERE { ?T1 a :track . ?T1 :track\\#location ?T1_location .        }"
+    },
+    {
+        "kg_name": "e_government",
+        "question": "Find the name of the most popular party form.",
+        "query": "SELECT ?T1_form_name (count( *) as ?aggregation_all) WHERE { ?T1 a :forms . ?T2 a :party_forms . ?T2 :party_forms\\#ref-form_id ?T1 .  ?T1 :forms\\#form_name ?T1_form_name .        } GROUP BY ?T1_form_name  ORDER BY DESC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "insurance_policies",
+        "question": "What is the payment method that were used the least often?",
+        "query": "SELECT ?T1_payment_method_code (count( *) as ?aggregation_all) WHERE { ?T1 a :payments . ?T1 :payments\\#payment_method_code ?T1_payment_method_code .        } GROUP BY ?T1_payment_method_code  ORDER BY ASC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "scholar",
+        "question": "Latest paper by oren etzioni",
+        "query": "SELECT DISTINCT ?T1_paperid ?T2_year WHERE { ?T1 a :writes . ?T2 a :paper . ?T1 :writes\\#ref-paperid ?T2 .  ?T1 :writes\\#paperid ?T1_paperid . ?T2 :paper\\#year ?T2_year . ?T2 :paper\\#year ?T2_year . ?T3 :author\\#authorname ?T3_authorname . ?T3 a :author . ?T1 :writes\\#ref-aid ?T3 .  ?T1 :writes\\#paperid ?T1_paperid . ?T2 :paper\\#year ?T2_year . ?T2 :paper\\#year ?T2_year . ?T3 :author\\#authorname ?T3_authorname . FILTER(?T3_authorname = 'oren etzioni') .        }  ORDER BY DESC (?T2_year)"
+    },
+    {
+        "kg_name": "allergy_1",
+        "question": "Show all allergy types.",
+        "query": "SELECT DISTINCT ?T1_allergytype WHERE { ?T1 a :allergy_type . ?T1 :allergy_type\\#allergytype ?T1_allergytype .        }"
+    },
+    {
+        "kg_name": "hr_1",
+        "question": "display the employee ID and job name for all those jobs in department 80.",
+        "query": "SELECT ?T1_employee_id ?T2_job_title WHERE { ?T1 a :employees . ?T2 a :jobs . ?T1 :employees\\#ref-job_id ?T2 .  ?T1 :employees\\#employee_id ?T1_employee_id . ?T2 :jobs\\#job_title ?T2_job_title . ?T1 :employees\\#department_id ?T1_department_id . FILTER(?T1_department_id = 80) .        }"
+    },
+    {
+        "kg_name": "manufacturer",
+        "question": "Find the names of furnitures whose prices are lower than the highest price.",
+        "query": "SELECT ?T1_name WHERE { ?T1 a :furniture . ?T2 a :furniture_manufacte . ?T2 :furniture_manufacte\\#ref-furniture_id ?T1 .  ?T1 :furniture\\#name ?T1_name . ?T2 :furniture_manufacte\\#price_in_dollar ?T2_price_in_dollar . FILTER(?T2_price_in_dollar < (?aggregation_T23_price_in_dollar_123)) .       {SELECT (max( ?T23_price_in_dollar) as ?aggregation_T23_price_in_dollar_123 ) WHERE { ?T23 a :furniture_manufacte . ?T23 :furniture_manufacte\\#price_in_dollar ?T23_price_in_dollar .        }    } }"
+    },
+    {
+        "kg_name": "university_basketball",
+        "question": "Find the team names of the universities whose enrollments are smaller than the average enrollment size.",
+        "query": "SELECT ?T1_team_name WHERE { ?T1 a :basketball_match . ?T2 a :university . ?T1 :basketball_match\\#ref-school_id ?T2 .  ?T1 :basketball_match\\#team_name ?T1_team_name . ?T2 :university\\#enrollment ?T2_enrollment . FILTER(?T2_enrollment < (?aggregation_T23_enrollment_68)) .       {SELECT (avg( ?T23_enrollment) as ?aggregation_T23_enrollment_68 ) WHERE { ?T23 a :university . ?T23 :university\\#enrollment ?T23_enrollment .        }    } }"
+    },
+    {
+        "kg_name": "customers_and_invoices",
+        "question": "Show the order ids and the number of items in each order.",
+        "query": "SELECT ?T1_order_id (count( *) as ?aggregation_all) WHERE { ?T1 a :order_items . ?T1 :order_items\\#order_id ?T1_order_id .        } GROUP BY ?T1_order_id"
+    },
+    {
+        "kg_name": "club_1",
+        "question": "Find the name of the club that has the most female students.",
+        "query": "SELECT ?T1_clubname (count( *) as ?aggregation_all) WHERE { ?T1 a :club . ?T2 a :member_of_club . ?T2 :member_of_club\\#ref-clubid ?T1 .  ?T1 :club\\#clubname ?T1_clubname . ?T3 :student\\#sex ?T3_sex . ?T3 a :student . ?T2 :member_of_club\\#ref-stuid ?T3 .  ?T1 :club\\#clubname ?T1_clubname . ?T3 :student\\#sex ?T3_sex . FILTER(?T3_sex = 'F') .        } GROUP BY ?T1_clubname  ORDER BY DESC (?aggregation_all) LIMIT 1"
+    },
+    {
+        "kg_name": "musical",
+        "question": "Return the characters for actors, ordered by age descending.",
+        "query": "SELECT ?T1_character WHERE { ?T1 a :actor . ?T1 :actor\\#character ?T1_character . ?T1 :actor\\#age ?T1_age .        }  ORDER BY DESC (?T1_age)"
+    },
+    {
+        "kg_name": "inn_1",
+        "question": "List how many times the number of people in the room reached the maximum occupancy of the room. The number of people include adults and kids.",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :reservations . ?T1 :reservations\\#adults ?T1_adults . ?T1 :reservations\\#kids ?T1_kids . ?T2 a :rooms . ?T1 :reservations\\#ref-room ?T2 .  ?T2 :rooms\\#maxoccupancy ?T2_maxoccupancy . BIND(?T1_adults +?T1_kids as ?total) FILTER(?T2_maxoccupancy = ?total) . }"
+    },
+    {
+        "kg_name": "scholar",
+        "question": "what are some syntactic parsing papers that chris dyer did not write ?",
+        "query": "SELECT DISTINCT ?T1_authorname ?T2_paperid WHERE { ?T1 a :author . ?T14 a :writes . ?T14 :writes\\#ref-aid ?T1 .  ?T1 :author\\#authorname ?T1_authorname . ?T2 :paper\\#paperid ?T2_paperid . ?T1 :author\\#authorname ?T1_authorname . ?T3 :keyphrase\\#keyphrasename ?T3_keyphrasename . ?T2 a :paper . ?T14 :writes\\#ref-paperid ?T2 .  ?T1 :author\\#authorname ?T1_authorname . ?T2 :paper\\#paperid ?T2_paperid . ?T1 :author\\#authorname ?T1_authorname . ?T3 :keyphrase\\#keyphrasename ?T3_keyphrasename . ?T15 a :paperkeyphrase . ?T15 :paperkeyphrase\\#ref-paperid ?T2 .  ?T1 :author\\#authorname ?T1_authorname . ?T2 :paper\\#paperid ?T2_paperid . ?T1 :author\\#authorname ?T1_authorname . ?T3 :keyphrase\\#keyphrasename ?T3_keyphrasename . ?T3 a :keyphrase . ?T15 :paperkeyphrase\\#ref-keyphraseid ?T3 .  ?T1 :author\\#authorname ?T1_authorname . ?T2 :paper\\#paperid ?T2_paperid . ?T1 :author\\#authorname ?T1_authorname . ?T3 :keyphrase\\#keyphrasename ?T3_keyphrasename . FILTER(?T1_authorname != 'chris dyer' && ?T3_keyphrasename = 'syntactic parsing') .        }"
+    },
+    {
+        "kg_name": "formula_1",
+        "question": "What are the first and last names of all drivers who participated in the Australian Grand Prix but not the Chinese Grand Prix?",
+        "query": "SELECT DISTINCT ?T3_forename ?T3_surname WHERE { ?T1 a :races . ?T2 a :results . ?T2 :results\\#ref-raceid ?T1 . ?T3 a :drivers . ?T2 :results\\#ref-driverid ?T3 . ?T1 :races\\#name ?T1_name .  ?T3 :drivers\\#forename ?T3_forename . ?T3 :drivers\\#surname ?T3_surname . FILTER(?T1_name = 'Australian Grand Prix') FILTER NOT EXISTS { ?T4 a :races . ?T5 a :results . ?T5 :results\\#ref-raceid ?T4 . ?T6 a :drivers . ?T5 :results\\#ref-driverid ?T6 . ?T4 :races\\#name ?T4_name .  ?T6 :drivers\\#forename ?T3_forename . ?T6 :drivers\\#surname ?T3_surname . FILTER(?T4_name = 'Chinese Grand Prix')}}"
+    },
+    {
+        "kg_name": "school_finance",
+        "question": "How many donors have endowment for school named 'Glenn'?",
+        "query": "SELECT DISTINCT (count(DISTINCT ?T1_donator_name) as ?aggregation_T1_donator_name_106 ) WHERE { ?T1 a :endowment . ?T2 a :school . ?T1 :endowment\\#ref-school_id ?T2 .  ?T1 :endowment\\#donator_name ?T1_donator_name . ?T2 :school\\#school_name ?T2_school_name . FILTER(?T2_school_name = 'Glenn') .        }"
+    },
+    {
+        "kg_name": "hospital_1",
+        "question": "Find the names of patients who are not using the medication of Procrastin-X.",
+        "query": "SELECT distinct?col1 WHERE { { SELECT (?T1_name as ?col1) WHERE { ?T1 a :patient . ?T1 :patient\\#name ?T1_name .   }}  MINUS {SELECT (?T2_name as ?col1) WHERE { ?T2 a :patient . ?T14 a :prescribes . ?T14 :prescribes\\#ref-patient ?T2 .  ?T2 :patient\\#name ?T2_name . ?T3 :medication\\#name ?T3_name . ?T3 a :medication . ?T14 :prescribes\\#ref-medication ?T3 .  ?T2 :patient\\#name ?T2_name . ?T3 :medication\\#name ?T3_name . FILTER(?T3_name = 'Procrastin-X') .        }     } }"
+    },
+    {
+        "kg_name": "insurance_and_eclaims",
+        "question": "Find all the policy type codes associated with the customer 'Dayana Robel'",
+        "query": "SELECT ?T1_policy_type_code WHERE { ?T1 a :policies . ?T2 a :customers . ?T1 :policies\\#ref-customer_id ?T2 .  ?T1 :policies\\#policy_type_code ?T1_policy_type_code . ?T2 :customers\\#customer_details ?T2_customer_details . FILTER(?T2_customer_details = 'Dayana Robel') .        }"
+    },
+    {
+        "kg_name": "csu_1",
+        "question": "What campuses opened between 1935 and 1939?",
+        "query": "SELECT ?T1_campus WHERE { ?T1 a :campuses . ?T1 :campuses\\#campus ?T1_campus . ?T1 :campuses\\#year ?T1_year . ?T1 :campuses\\#year ?T1_year . FILTER(?T1_year >= 1935 && ?T1_year <= 1939) .        }"
+    },
+    {
+        "kg_name": "company_office",
+        "question": "List the name of a building along with the name of a company whose office is in the building.",
+        "query": "SELECT ?T1_name ?T2_name WHERE { ?T1 a :companies . ?T13 a :office_locations . ?T13 :office_locations\\#ref-company_id ?T1 .  ?T1 :companies\\#name ?T1_name . ?T2 :buildings\\#name ?T2_name . ?T2 a :buildings . ?T13 :office_locations\\#ref-building_id ?T2 .  ?T1 :companies\\#name ?T1_name . ?T2 :buildings\\#name ?T2_name .        }"
+    },
+    {
+        "kg_name": "document_management",
+        "question": "What are all the section titles of the document named 'David CV'?",
+        "query": "SELECT ?T1_section_title WHERE { ?T1 a :document_sections . ?T2 a :documents . ?T1 :document_sections\\#ref-document_code ?T2 .  ?T1 :document_sections\\#section_title ?T1_section_title . ?T2 :documents\\#document_name ?T2_document_name . FILTER(?T2_document_name = 'David CV') .        }"
+    },
+    {
+        "kg_name": "hr_1",
+        "question": "Find the ids of the employees who does not work in those departments where some employees works whose manager id within the range 100 and 200.",
+        "query": "SELECT * WHERE { ?T1 a :employees . ?T1 :employees\\#department_id ?T1_department_id . FILTER NOT EXISTS { ?T22 a :departments . ?T22 :departments\\#department_id ?T1_department_id . ?T22 :departments\\#manager_id ?T22_manager_id . FILTER (?T22_manager_id >= 100 && ?T22_manager_id <= 200) . } }"
+    },
+    {
+        "kg_name": "e_learning",
+        "question": "List the personal names and family names of all the students in alphabetical order of family name.",
+        "query": "SELECT ?T1_personal_name ?T1_family_name WHERE { ?T1 a :students . ?T1 :students\\#personal_name ?T1_personal_name . ?T1 :students\\#family_name ?T1_family_name . ?T1 :students\\#family_name ?T1_family_name .        }  ORDER BY ASC (?T1_family_name)"
+    },
+    {
+        "kg_name": "school_finance",
+        "question": "How many budget record has a budget amount smaller than the invested amount?",
+        "query": "SELECT (count( *) as ?aggregation_all) WHERE { ?T1 a :budget . ?T1 :budget\\#budgeted ?T1_budgeted . ?T1 :budget\\#invested ?T1_invested . FILTER(?T1_budgeted < ?T1_invested) .        }"
+    },
+    {
+        "kg_name": "geo",
+        "question": "what is the population of california",
+        "query": "SELECT ?T1_population WHERE { ?T1 a :state . ?T1 :state\\#population ?T1_population . ?T1 :state\\#state_name ?T1_state_name . FILTER(?T1_state_name = 'california') .        }"
+    }
+]
