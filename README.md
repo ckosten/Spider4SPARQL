@@ -1,4 +1,4 @@
-# Natural Language Sparql Pairs
+# Natural Language/SPARQL Pairs
 1,034 Dev queries are available in a csv file located in [natural language sparql pairs dev file](nl_sparql_pairs/dev/dev_nl_sparql.csv)
 8,659 Train queries are available in a csv file located in [natural language sparql pairs train file](nl_sparql_pairs/train/train_nl_sparql.csv)
 
