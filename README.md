@@ -14,7 +14,7 @@ The 20 Spider dev databases and 146 train databases have been converted from sql
 
 It is important to note that both the databases and developement set SQL queries have been improved and are now conformant with PostgreSQL and best practices in data base design.
 
-The code and all parameters used in the experiments for ValueNet4SPARQL can be found here: [Link to gitfront repo](https://gitfront.io/r/user-4351818/Kmk7viviNpDX/Valuenet4Sparql/)
+The code and all parameters used in the experiments for ValueNet4SPARQL can be found here: [Link to gitfront repo](https://gitfront.io/r/user-4351818/DRHWmMVu7YTJ/ValueNet4SPARQL/)
 
 The code and all parameters used in the experiments for T5-Small and T5-Base can be found here: [Link to gitfront repo](https://gitfront.io/r/user-4351818/ZLScR8epDL57/nlql/)
 
