@@ -22,3 +22,13 @@ The zero- and few-shot prompts used in the GPT-3.5 experiments are located in [G
 
 
 
+# Citation
+```
+@misc{kosten2023spider4sparql,
+      title={Spider4SPARQL: A Complex Benchmark for Evaluating Knowledge Graph Question Answering Systems}, 
+      author={Catherine Kosten and Philippe Cudré-Mauroux and Kurt Stockinger},
+      year={2023},
+      eprint={2309.16248},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
