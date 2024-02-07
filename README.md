@@ -24,11 +24,20 @@ The zero- and few-shot prompts used in the GPT-3.5 experiments are located in [G
 
 # Citation
 ```
-@misc{kosten2023spider4sparql,
-      title={Spider4SPARQL: A Complex Benchmark for Evaluating Knowledge Graph Question Answering Systems}, 
-      author={Catherine Kosten and Philippe Cudré-Mauroux and Kurt Stockinger},
-      year={2023},
-      eprint={2309.16248},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@INPROCEEDINGS {10386182,
+author = {C. Kosten and P. Cudre-Mauroux and K. Stockinger},
+booktitle = {2023 IEEE International Conference on Big Data (BigData)},
+title = {Spider4SPARQL: A Complex Benchmark for Evaluating Knowledge Graph Question Answering Systems},
+year = {2023},
+volume = {},
+issn = {},
+pages = {5272-5281},
+abstract = {With the recent spike in the number and availability of Large Language Models (LLMs), it has become increasingly important to provide large and realistic benchmarks for evaluating Knowledge Graph Question Answering (KGQA) systems. So far the majority of benchmarks rely on pattern-based SPARQL query generation approaches. The subsequent natural language (NL) question generation is conducted through crowdsourcing or other automated methods, such as rule-based paraphrasing or NL question templates. Although some of these datasets are of considerable size, their pitfall lies in their pattern-based generation approaches, which do not always generalize well to the vague and linguistically diverse questions asked by humans in real-world contexts. In this paper, we introduce Spider4SPARQL -a new SPARQL benchmark dataset featuring 9,693 previously existing manually generated NL questions and 4,721 unique, novel, and complex SPARQL queries of varying complexity. In addition to the NL/SPARQL pairs, we also provide their corresponding 166 knowledge graphs and ontologies, which cover 138 different domains. Our complex benchmark enables novel ways of evaluating the strengths and weaknesses of modern KGQA systems. We evaluate the system with state-of-the-art KGQA systems as well as LLMs, which achieve only up to 45% execution accuracy, demonstrating that Spider4SPARQL is a challenging benchmark for future research.},
+keywords = {measurement;crowdsourcing;natural languages;knowledge graphs;benchmark testing;ontologies;question answering (information retrieval)},
+doi = {10.1109/BigData59044.2023.10386182},
+url = {https://doi.ieeecomputersociety.org/10.1109/BigData59044.2023.10386182},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {dec}
 }
+
