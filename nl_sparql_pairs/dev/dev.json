@@ -807,12 +807,12 @@
     {
         "kg_name": "car_1",
         "question": "How many countries has more than 2 car makers ?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :countries .        }"
+        "query": "select (count(*) as ?aggregation) where { ?t1 a :countries . ?t1 :countries\\#countryid ?t1_countryid .  ?t2 a :car_makers . ?t2 :car_makers\\#ref-country ?t1 . } group by ?t1_countryid having (count(*)>2)"
     },
     {
         "kg_name": "car_1",
         "question": "What is the number of countries with more than 2 car makers ?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :countries .        }"
+        "query": "select (count(*) as ?aggregation) where { ?t1 a :countries . ?t1 :countries\\#countryid ?t1_countryid .  ?t2 a :car_makers . ?t2 :car_makers\\#ref-country ?t1 . } group by ?t1_countryid having (count(*)>2)"
     },
     {
         "kg_name": "car_1",
@@ -2057,22 +2057,22 @@
     {
         "kg_name": "museum_visit",
         "question": "How many visitors below age 30 are there?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :museum .        }"
+        "query": "select (count(?visitor) as ?count) WHERE {   ?visitor a :visitor .   ?visitor :visitor\\#age ?age .   FILTER(?age < 30) . }"
     },
     {
         "kg_name": "museum_visit",
         "question": "Find the names of the visitors whose membership level is higher than 4, and order the results by the level from high to low.",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :museum .        }"
+        "query": "select ?T1_name WHERE { ?T1 a :visitor . ?T1 :visitor\\#name ?T1_name . ?T1 :visitor\\#level_of_membership ?T1_level_of_membership . FILTER(?T1_level_of_membership > 4) . } ORDER BY DESC (?T1_level_of_membership)"
     },
     {
         "kg_name": "museum_visit",
         "question": "What is the average age of the visitors whose membership level is not higher than 4?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :museum .        }"
+        "query": "select (avg(?T1_age) as ?average_age) WHERE { ?T1 a :visitor . ?T1 :visitor\\#age ?T1_age . ?T1 :visitor\\#level_of_membership ?T1_level_of_membership . FILTER(?T1_level_of_membership <= 4) . }"
     },
     {
         "kg_name": "museum_visit",
         "question": "Find the name and membership level of the visitors whose membership level is higher than 4, and sort by their age from old to young.",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :museum .        }"
+        "query": "select ?T1_name ?T1_level_of_membership WHERE { ?T1 a :visitor . ?T1 :visitor\\#name ?T1_name . ?T1 :visitor\\#level_of_membership ?T1_level_of_membership . FILTER(?T1_level_of_membership > 4) . } ORDER BY DESC (?T1_age)"
     },
     {
         "kg_name": "museum_visit",
@@ -2082,7 +2082,7 @@
     {
         "kg_name": "museum_visit",
         "question": "Find the average number of staff working for the museums that were open before 2009.",
-        "query": "select (avg( ?t1_num_of_staff) as ?aggregation_t1_num_of_staff_169 ) where { ?t1 a :museum . ?t1 :museum\\#num_of_staff ?t1_num_of_staff . ?t1 :museum\\#open_year ?t1_open_year . FILTER(?t1_open_year < '2009') .        }"
+        "query": "select (avg( ?t1_num_of_staff) as ?aggregation_t1_num_of_staff_169 ) where { ?t1 a :museum . ?t1 :museum\\#num_of_staff ?t1_num_of_staff . ?t1 :museum\\#open_year ?t1_open_year . FILTER(?t1_open_year < 2009) .        }"
     },
     {
         "kg_name": "museum_visit",
@@ -3441,19 +3441,13 @@
     },
     {
         "kg_name": "voter_1",
-        "question": "List the contestant numbers and names",
-        "query": " ordered by contestant name descending.",
-        "null": [
-            "SELECT ?T1_contestant_number ?T1_contestant_name WHERE { ?T1 a :contestants . ?T1 :contestants\\#contestant_number ?T1_contestant_number . ?T1 :contestants\\#contestant_name ?T1_contestant_name . ?T1 :contestants\\#contestant_name ?T1_contestant_name .        }  ORDER BY DESC (?T1_contestant_name)"
-        ]
+        "question": "List the contestant numbers and names, ordered by contestant name descending.",
+        "query": "SELECT ?T1_contestant_number ?T1_contestant_name WHERE { ?T1 a :contestants . ?T1 :contestants\\#contestant_number ?T1_contestant_number . ?T1 :contestants\\#contestant_name ?T1_contestant_name . ?T1 :contestants\\#contestant_name ?T1_contestant_name .        }  ORDER BY DESC (?T1_contestant_name)"
     },
     {
         "kg_name": "voter_1",
-        "question": "List the vote ids",
-        "query": " phone numbers and states of all votes.",
-        "null": [
-            "SELECT ?T1_vote_id ?T1_phone_number ?T1_state WHERE { ?T1 a :votes . ?T1 :votes\\#vote_id ?T1_vote_id . ?T1 :votes\\#phone_number ?T1_phone_number . ?T1 :votes\\#state ?T1_state .        }"
-        ]
+        "question": "List the vote ids, phone numbers and states of all votes.",
+        "query":"SELECT ?T1_vote_id ?T1_phone_number ?T1_state WHERE { ?T1 a :votes . ?T1 :votes\\#vote_id ?T1_vote_id . ?T1 :votes\\#phone_number ?T1_phone_number . ?T1 :votes\\#state ?T1_state .        }"
     },
     {
         "kg_name": "voter_1",
@@ -3482,11 +3476,8 @@
     },
     {
         "kg_name": "voter_1",
-        "question": "Of all the contestants who got voted",
-        "query": " what is the contestant number and name of the contestant who got least votes?",
-        "null": [
-            "SELECT ?T1_contestant_number (count( *) as ?aggregation_all) ?T1_contestant_name WHERE { ?T1 a :contestants . ?T3 a :votes . ?T3 :votes\\#ref-contestant_number ?T1 .  ?T1 :contestants\\#contestant_number ?T1_contestant_number . ?T1 :contestants\\#contestant_name ?T1_contestant_name . ?T1 :contestants\\#contestant_number ?T1_contestant_number .        } GROUP BY ?T1_contestant_number ?T1_contestant_name  ORDER BY ASC (?aggregation_all) LIMIT 1"
-        ]
+        "question": "Of all the contestants who got voted, what is the contestant number and name of the contestant who got least votes?",
+        "query":"SELECT ?T1_contestant_number (count( *) as ?aggregation_all) ?T1_contestant_name WHERE { ?T1 a :contestants . ?T3 a :votes . ?T3 :votes\\#ref-contestant_number ?T1 .  ?T1 :contestants\\#contestant_number ?T1_contestant_number . ?T1 :contestants\\#contestant_name ?T1_contestant_name . ?T1 :contestants\\#contestant_number ?T1_contestant_number .        } GROUP BY ?T1_contestant_number ?T1_contestant_name  ORDER BY ASC (?aggregation_all) LIMIT 1"
     },
     {
         "kg_name": "voter_1",
@@ -3505,12 +3496,8 @@
     },
     {
         "kg_name": "voter_1",
-        "question": "What are the create dates",
-        "query": " states",
-        "null": [
-            " and phone numbers of the votes that were for the contestant named 'Tabatha Gehling'?",
-            "SELECT ?T1_created ?T1_state ?T1_phone_number WHERE { ?T1 a :votes . ?T2 a :contestants . ?T1 :votes\\#ref-contestant_number ?T2 .  ?T1 :votes\\#created ?T1_created . ?T1 :votes\\#state ?T1_state . ?T1 :votes\\#phone_number ?T1_phone_number . ?T2 :contestants\\#contestant_name ?T2_contestant_name . FILTER(?T2_contestant_name = 'Tabatha Gehling') .        }"
-        ]
+        "question": "What are the create dates, states, and phone numbers of the votes that were for the contestant named 'Tabatha Gehling'?",
+        "query": "SELECT ?T1_created ?T1_state ?T1_phone_number WHERE { ?T1 a :votes . ?T2 a :contestants . ?T1 :votes\\#ref-contestant_number ?T2 .  ?T1 :votes\\#created ?T1_created . ?T1 :votes\\#state ?T1_state . ?T1 :votes\\#phone_number ?T1_phone_number . ?T2 :contestants\\#contestant_name ?T2_contestant_name . FILTER(?T2_contestant_name = 'Tabatha Gehling') .        }"
     },
     {
         "kg_name": "voter_1",
@@ -3735,12 +3722,12 @@
     {
         "kg_name": "world_1",
         "question": "How many countries speak both English and Dutch?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :country .        }"
+        "query": "SELECT (count(*) as ?aggregation_all) WHERE {{SELECT ?t1_name WHERE{?t1 a :country . ?t1 :country\\#name ?t1_name . ?t2 a :countrylanguage . ?t2 :countrylanguage\\#language ?t2_language . ?t2 :countrylanguage\\#countrycode ?id .?t1:country\\#code ?id . FILTER(?t2_language ='English')} }{SELECT ?t1_name WHERE{?t1 a :country . ?t1 :country\\#name ?t1_name . ?t2 a :countrylanguage . ?t2 :countrylanguage\\#language ?t2_language . ?t2 :countrylanguage\\#countrycode ?id .?t1:country\\#code ?id . FILTER(?t2_language ='Dutch')}}}"
     },
     {
         "kg_name": "world_1",
         "question": "What is the number of nations that use English and Dutch?",
-        "query": "select (count( *) as ?aggregation_all) where { ?t1 a :country .        }"
+        "query": "SELECT (count(*) as ?aggregation_all) WHERE {{SELECT ?t1_name WHERE{?t1 a :country . ?t1 :country\\#name ?t1_name . ?t2 a :countrylanguage . ?t2 :countrylanguage\\#language ?t2_language . ?t2 :countrylanguage\\#countrycode ?id .?t1:country\\#code ?id . FILTER(?t2_language ='English')} }{SELECT ?t1_name WHERE{?t1 a :country . ?t1 :country\\#name ?t1_name . ?t2 a :countrylanguage . ?t2 :countrylanguage\\#language ?t2_language . ?t2 :countrylanguage\\#countrycode ?id .?t1:country\\#code ?id . FILTER(?t2_language ='Dutch')}}}"
     },
     {
         "kg_name": "world_1",
