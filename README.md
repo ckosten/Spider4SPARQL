@@ -7,7 +7,7 @@ This repository contains materialized Knowledge graphs for the dev and train set
 
 Materialized Knowledge Graphs Dev set: [link to zip file with materialized KGs for dev set](https://drive.google.com/file/d/1S6xaI0VfnFMrsuyjxv2uQPok_CikhLLx/view?usp=sharing)
 
-Materialized Knowledge Graphs Train set: [link to zip file with materialized KGs for train set](https://drive.google.com/file/d/1MHfPD0IuF4tWzbJEGSDmUMEavkB4lEs0/view?usp=sharing)
+Materialized Knowledge Graphs Train set: [link to zip file with materialized KGs for train set](https://drive.google.com/file/d/1lBW_8bc_jC7-OSO5KJb2voBX8fqMqFj1/view?usp=sharing)
 
 # PostgreSQL compatible data dumps & schemas
 The 20 Spider dev databases and 146 train databases have been converted from sqlite to PostgreSQL compatible databases. [Link to the zip file with the PostgreSQL dumps](https://drive.google.com/file/d/1wh3S5EexLZeUXIxzQmUpuFC817Yg1QQ1/view?usp=sharing).
